@@ -17,10 +17,10 @@ class CreateOpportunitiesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->foreignId('user_id')->constrained()->onDelete('set null');
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
-            $table->foreignId('fund_id')->constrained()->onDelete('cascade');
-            $table->foreignId('organization_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->onDelete('set null');
+            $table->foreignId('category_id')->nullable()->onDelete('set null');
+            $table->foreignId('fund_id')->nullable()->onDelete('set null');
+            $table->foreignId('organization_id')->nullable()->onDelete('set null');
             $table->string('website')->nullable();
             $table->string('apply_link')->nullable();
             $table->string('reference')->nullable();

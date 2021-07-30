@@ -1,6 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\OrganizationController;
+use App\Http\Controllers\admin\OpportunityController;
+use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\LocationController;
+use App\Http\Controllers\admin\EducationController;
+use App\Http\Controllers\admin\FundController;
+use App\Http\Controllers\admin\AreaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +27,16 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function() {
     Route::view('/', 'admin.dashboard')->name('dashboard');
 
-    Route::resource('/cat');
+    Route::resources([
+        'opportunity' => OpportunityController::class,
+        'category' => CategoryController::class,
+        'location' => LocationController::class,
+        'education' => EducationController::class,
+        'organization' => OrganizationController::class,
+        'fund' => FundController::class,
+        'area' => AreaController::class,
+    ]);
+
 });
 
 

@@ -5,49 +5,49 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('admin.dashboard') }}">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
+                    <a class="text-xl" href="{{ route('admin.dashboard') }}">
+                        OPP4AF
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex">
                     <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('admin.opportunity')" :active="request()->routeIs('admin.opportunity')">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex">
+                    <x-nav-link :href="route('admin.opportunity.index')" :active="request()->routeIs('admin.opportunity.*')">
                         {{ __('Opportunities') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('admin.category')" :active="request()->routeIs('admin.category')">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex">
+                    <x-nav-link :href="route('admin.category.index')" :active="request()->routeIs('admin.category.*')">
                         {{ __('Categories') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('admin.location')" :active="request()->routeIs('admin.location')">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex">
+                    <x-nav-link :href="route('admin.location.index')" :active="request()->routeIs('admin.location.*')">
                         {{ __('Locations') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('admin.organization')" :active="request()->routeIs('admin.organization')">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex">
+                    <x-nav-link :href="route('admin.organization.index')" :active="request()->routeIs('admin.organization.*')">
                         {{ __('Organizations') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('admin.fund')" :active="request()->routeIs('admin.fund')">
-                        {{ __('Fund Types') }}
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex">
+                    <x-nav-link :href="route('admin.fund.index')" :active="request()->routeIs('admin.fund.*')">
+                        {{ __('Funds') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('admin.education')" :active="request()->routeIs('admin.education')">
-                        {{ __('Educations') }}
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex">
+                    <x-nav-link :href="route('admin.education.index')" :active="request()->routeIs('admin.education.*')">
+                        {{ __('Education') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('admin.area')" :active="request()->routeIs('admin.area')">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex">
+                    <x-nav-link :href="route('admin.area.index')" :active="request()->routeIs('admin.area.*')">
                         {{ __('Areas') }}
                     </x-nav-link>
                 </div>
@@ -84,7 +84,7 @@
             </div>
 
             <!-- Hamburger -->
-            <div class="-mr-2 flex items-center sm:hidden">
+            <div class="-mr-2 flex items-center lg:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -100,6 +100,27 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.opportunity.index')" :active="request()->routeIs('admin.opportunity.*')">
+                {{ __('Opportunities') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.category.index')" :active="request()->routeIs('admin.category.*')">
+                {{ __('Categories') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.location.index')" :active="request()->routeIs('admin.location.*')">
+                {{ __('Locations') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.organization.index')" :active="request()->routeIs('admin.organization.*')">
+                {{ __('Organizations') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.fund.index')" :active="request()->routeIs('admin.fund.*')">
+                {{ __('Funds') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.education.index')" :active="request()->routeIs('admin.education.*')">
+                {{ __('Education') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.area.index')" :active="request()->routeIs('admin.area.*')">
+                {{ __('Areas') }}
             </x-responsive-nav-link>
         </div>
 
