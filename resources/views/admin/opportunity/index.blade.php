@@ -15,12 +15,39 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200 overflow-x-auto">
                     <x-auth-session-status class="mb-4" :status="session('success')" />
+                    <div class="grid grid-cols-2 md:grid-cols-4 mb-4 gap-x-4 gap-y-2">
+                        <select onchange="updateFilter()" name="category_id" class="w-full border-none text-gray-600 bg-gray-50 rounded px-3 py-2 outline-none">
+                            <option {{ request()->query('category_id', 0) == 0 ? 'selected' : '' }} value="0"></option>
+                            @foreach($categories as $category)
+                                <option {{ request()->query('category_id', 0) == $category->id ? 'selected' : '' }} value="{{$category->id}}" class="py-1">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                        <select onchange="updateFilter()" name="education_id" class="w-full border-none text-gray-600 bg-gray-50 rounded px-3 py-2 outline-none">
+                            <option {{ request()->query('education_id', 0) == 0 ? 'selected' : '' }} value="0"></option>
+                            @foreach($education as $edu)
+                                <option {{ request()->query('education_id', 0) == $edu->id ? 'selected' : '' }} value="{{$edu->id}}" class="py-1">{{ $edu->name }}</option>
+                            @endforeach
+                        </select>
+                        <select onchange="updateFilter()" name="location_id" class="w-full border-none text-gray-600 bg-gray-50 rounded px-3 py-2 outline-none">
+                            <option {{ request()->query('location_id', 0) == 0 ? 'selected' : '' }} value="0"></option>
+                            @foreach($locations as $location)
+                                <option {{ request()->query('location_id', 0) == $location->id ? 'selected' : '' }} value="{{$location->id}}" class="py-1">{{ $location->name }}</option>
+                            @endforeach
+                        </select>
+                        <select onchange="updateFilter()" name="state" class="w-full border-none text-gray-600 bg-gray-50 rounded px-3 py-2 outline-none">
+                            <option {{ request()->query('state', '') == '' ? 'selected' : '' }} value=""></option>
+                            <option {{ request()->query('state', '') == 'published' ? 'selected' : '' }} value="published">{{ __('Published') }}</option>
+                            <option {{ request()->query('state', '') == 'unpublished' ? 'selected' : '' }} value="unpublished">{{ __('Un-published') }}</option>
+                            <option {{ request()->query('state', '') == 'open' ? 'selected' : '' }} value="open">{{ __('Open') }}</option>
+                            <option {{ request()->query('state', '') == 'closed' ? 'selected' : '' }} value="closed">{{ __('Closed') }}</option>
+                        </select>
+                    </div>
                     @if($opportunities->count())
                         <table class="min-w-max w-full table-auto">
                             <thead>
                             <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                                 <th class="py-3 px-6 text-left">{{ __('No.') }}</th>
-                                <th class="py-3 px-6 text-left">{{ __('Name') }}</th>
+                                <th class="py-3 pl-6 text-left">{{ __('Name') }}</th>
                                 <th class="py-3 px-6 text-left">{{ __('Category') }}</th>
                                 <th class="py-3 px-6 text-center">{{ __('Created') }}</th>
                                 <th class="py-3 px-6 text-center">{{ __('Actions') }}</th>
@@ -35,7 +62,7 @@
                                     <td class="py-3 px-6 text-left">
                                         {{$opportunity->name}}
                                     </td>
-                                    <td class="py-3 px-6 text-left">
+                                    <td class="py-3 pl-6 text-left">
                                         {{$opportunity->category->name}}
                                     </td>
                                     <td class="py-3 px-6 text-center">
@@ -71,5 +98,23 @@
         <x-confirm-modal/>
     </div>
 
-
+    @section('script')
+        <script>
+            function updateFilter(e) {
+                let route = '{{ route('admin.opportunity.index') }}?'
+                document.querySelectorAll('select').forEach((s) => {
+                    if(s.name != 'state' && s.value > 0) {
+                        route += `${s.name}=${s.value}&`
+                    }
+                    else if(s.name == 'state' && s.value != ''){
+                        route += `${s.name}=${s.value}&`
+                    }
+                })
+                if(route.lastIndexOf('&') == route.length-1 || route.lastIndexOf('?') == route.length-1) {
+                    route = route.substring(0, route.length-1)
+                }
+                location.replace(route)
+            }
+        </script>
+    @endsection
 </x-app-layout>
