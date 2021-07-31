@@ -22,39 +22,52 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex">
-                    <x-nav-link :href="route('admin.category.index')" :active="request()->routeIs('admin.category.*')">
-                        {{ __('Categories') }}
+                    <x-nav-link :href="route('admin.user.index')" :active="request()->routeIs('admin.user.*')">
+                        {{ __('Users') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex">
-                    <x-nav-link :href="route('admin.location.index')" :active="request()->routeIs('admin.location.*')">
-                        {{ __('Locations') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex">
-                    <x-nav-link :href="route('admin.organization.index')" :active="request()->routeIs('admin.organization.*')">
-                        {{ __('Organizations') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex">
-                    <x-nav-link :href="route('admin.fund.index')" :active="request()->routeIs('admin.fund.*')">
-                        {{ __('Funds') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex">
-                    <x-nav-link :href="route('admin.education.index')" :active="request()->routeIs('admin.education.*')">
-                        {{ __('Education') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex">
-                    <x-nav-link :href="route('admin.area.index')" :active="request()->routeIs('admin.area.*')">
-                        {{ __('Areas') }}
-                    </x-nav-link>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex items-center">
+                <x-dropdown align="right" width="48">
+                    <x-slot name="trigger">
+                        <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                            <div>{{ __('Fields') }}</div>
+
+                            <div class="ml-1">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </button>
+                    </x-slot>
+
+                    <x-slot name="content">
+                        <x-dropdown-link :href="route('admin.category.index')">
+                                {{ __('Categories') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('admin.location.index')">
+                            {{ __('Locations') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('admin.education.index')">
+                            {{ __('Education') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('admin.organization.index')">
+                            {{ __('Organization') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('admin.fund.index')">
+                            {{ __('Funds') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('admin.area.index')">
+                            {{ __('Areas') }}
+                        </x-dropdown-link>
+
+                    </x-slot>
+                </x-dropdown>
                 </div>
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class="hidden lg:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
@@ -96,7 +109,7 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden lg:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
                 {{ __('Dashboard') }}
@@ -121,6 +134,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('admin.area.index')" :active="request()->routeIs('admin.area.*')">
                 {{ __('Areas') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.user.index')" :active="request()->routeIs('admin.user.*')">
+                {{ __('Users') }}
             </x-responsive-nav-link>
         </div>
 

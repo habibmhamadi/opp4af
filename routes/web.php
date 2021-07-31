@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\LocationController;
 use App\Http\Controllers\admin\EducationController;
 use App\Http\Controllers\admin\FundController;
 use App\Http\Controllers\admin\AreaController;
+use App\Http\Controllers\admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
         'organization' => OrganizationController::class,
         'fund' => FundController::class,
         'area' => AreaController::class,
+        'user' => UserController::class,
     ]);
 
 });
