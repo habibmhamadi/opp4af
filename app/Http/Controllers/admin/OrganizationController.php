@@ -19,33 +19,33 @@ class OrganizationController extends Controller
 
     public function create()
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         return view('admin.organization.create');
     }
 
     public function store(Request $request)
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         Organization::create($request->validate(['name' => 'required|min:3|unique:organizations,name']));
         return redirect()->route('admin.organization.index')->with(['success' => __('Create success.')]);
     }
 
     public function edit(Organization $organization)
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         return view('admin.organization.edit', ['organization' => $organization]);
     }
 
     public function update(Request $request, Organization $organization)
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         $organization->update($request->validate(['name' => 'required|min:3|unique:organizations,name']));
         return redirect()->route('admin.organization.index')->with(['success' => __('Edit success.')]);
     }
 
     public function destroy(Organization $organization)
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         $organization->delete();
         return redirect()->route('admin.organization.index')->with(['success' => __('Delete success.')]);
     }

@@ -19,33 +19,33 @@ class FundController extends Controller
 
     public function create()
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         return view('admin.fund.create');
     }
 
     public function store(Request $request)
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         Fund::create($request->validate(['name' => 'required|min:3|unique:funds,name']));
         return redirect()->route('admin.fund.index')->with(['success' => __('Create success.')]);
     }
 
     public function edit(Fund $fund)
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         return view('admin.fund.edit', ['fund' => $fund]);
     }
 
     public function update(Request $request, Fund $fund)
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         $fund->update($request->validate(['name' => 'required|min:3|unique:funds,name']));
         return redirect()->route('admin.fund.index')->with(['success' => __('Edit success.')]);
     }
 
     public function destroy(Fund $fund)
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         $fund->delete();
         return redirect()->route('admin.fund.index')->with(['success' => __('Delete success.')]);
     }

@@ -19,33 +19,33 @@ class LocationController extends Controller
 
     public function create()
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         return view('admin.location.create');
     }
 
     public function store(Request $request)
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         Location::create($request->validate(['name' => 'required|min:3|unique:locations,name']));
         return redirect()->route('admin.location.index')->with(['success' => __('Create success.')]);
     }
 
     public function edit(Location $location)
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         return view('admin.location.edit', ['location' => $location]);
     }
 
     public function update(Request $request, Location $location)
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         $location->update($request->validate(['name' => 'required|min:3|unique:locations,name']));
         return redirect()->route('admin.location.index')->with(['success' => __('Edit success.')]);
     }
 
     public function destroy(Location $location)
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         $location->delete();
         return redirect()->route('admin.location.index')->with(['success' => __('Delete success.')]);
     }

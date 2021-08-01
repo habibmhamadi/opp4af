@@ -19,33 +19,33 @@ class EducationController extends Controller
 
     public function create()
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         return view('admin.education.create');
     }
 
     public function store(Request $request)
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         Education::create($request->validate(['name' => 'required|min:3|unique:education,name']));
         return redirect()->route('admin.education.index')->with(['success' => __('Create success.')]);
     }
 
     public function edit(Education $education)
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         return view('admin.education.edit', ['education' => $education]);
     }
 
     public function update(Request $request, Education $education)
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         $education->update($request->validate(['name' => 'required|min:3|unique:education,name']));
         return redirect()->route('admin.education.index')->with(['success' => __('Edit success.')]);
     }
 
     public function destroy(Education $education)
     {
-        abort_if(Gate::denies('admin'), 403);
+        abort_if(Gate::denies('admin'), 401);
         $education->delete();
         return redirect()->route('admin.education.index')->with(['success' => __('Delete success.')]);
     }

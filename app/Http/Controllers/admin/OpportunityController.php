@@ -3,26 +3,119 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreOpportunityRequest;
+use App\Http\Requests\UpdateOpportunityRequest;
+use App\Models\Area;
 use App\Models\Category;
 use App\Models\Education;
 use App\Models\Fund;
 use App\Models\Location;
 use App\Models\Opportunity;
+use App\Models\Organization;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class OpportunityController extends Controller
 {
     public function __construct(Request $request)
+    {
+        $this->getRouteFilters($request);
+    }
+
+    public function index(Request $request)
+    {
+        $opportunities = Opportunity::with('category')
+            ->select('id', 'name', 'category_id', 'fund_id', 'created_at');
+
+        $opportunities = $this->applyRouteFilters($opportunities)->latest()->simplePaginate(10);
+        $datas = $this->getRouteDatas(false);
+        $datas['opportunities'] = $opportunities;
+        $datas['count'] = ($request->query('page', 1) - 1) * 10;
+        return view('admin.opportunity.index', $datas);
+    }
+
+    public function create()
+    {
+        return view('admin.opportunity.create', $this->getRouteDatas());
+    }
+
+    public function store(StoreOpportunityRequest $request)
+    {
+        $request->validated();
+        $opportunity = auth()->user()->opportunities()
+            ->create($request->except(['image', 'location_ids', 'education_ids', 'area_ids']));
+
+        // TO DO SAVE IMAGE
+
+        $opportunity->education()->attach($request->only('education_ids')['education_ids']);
+        $opportunity->locations()->attach($request->only('location_ids')['location_ids']);
+        $opportunity->areas()->attach($request->only('area_ids')['area_ids']);
+
+        return redirect()->route('admin.opportunity.index')->with(['success' => 'Create success.']);
+    }
+
+    public function edit(Opportunity $opportunity)
+    {
+        abort_if(Gate::denies('alter-opportunity', $opportunity), 401);
+        $datas = $this->getRouteDatas();
+        $datas['opportunity'] = $opportunity;
+        return view('admin.opportunity.edit', $datas);
+    }
+
+    public function update(UpdateOpportunityRequest $request, Opportunity $opportunity)
+    {
+        abort_if(Gate::denies('alter-opportunity', $opportunity), 401);
+        $request->validated();
+        $opportunity->update($request->except(['image', 'location_ids', 'education_ids', 'area_ids']));
+
+        // TO DO REPLACE IMAGE
+
+        $opportunity->education()->detach();
+        $opportunity->locations()->detach();
+        $opportunity->areas()->detach();
+
+        $opportunity->education()->attach($request->only('education_ids')['education_ids']);
+        $opportunity->locations()->attach($request->only('location_ids')['location_ids']);
+        $opportunity->areas()->attach($request->only('area_ids')['area_ids']);
+
+        return redirect()->route('admin.opportunity.index')->with(['success' => 'Edit success.']);
+    }
+
+    public function destroy(Opportunity $opportunity)
+    {
+        abort_if(Gate::denies('alter-opportunity', $opportunity), 401);
+        $opportunity->delete();
+        return back()->with(['success' => 'Delete success.']);
+    }
+
+    private function getRouteDatas($allData = true)
+    {
+        $datas = [
+            'categories' => DB::table('categories')->get(['id', 'name']),
+            'education' => DB::table('education')->get(['id', 'name']),
+            'locations' => DB::table('locations')->get(['id', 'name']),
+        ];
+
+        if($allData)
+        {
+            $datas['organizations'] = DB::table('organizations')->get(['id', 'name']);
+            $datas['funds'] = DB::table('funds')->get(['id', 'name']);
+            $datas['areas'] = DB::table('areas')->get(['id', 'name']);
+        }
+        return $datas;
+    }
+
+    private function getRouteFilters(Request $request)
     {
         $this->category_id = $request->query('category_id', 0);
         $this->education_id = $request->query('education_id', 0);
         $this->location_id = $request->query('location_id', 0);
         $this->state = $request->query('state', 'unpublished');
     }
-    public function index(Request $request)
+
+    private function applyRouteFilters($opportunities)
     {
-        $opportunities = Opportunity::with('category')
-            ->select('id', 'name', 'category_id', 'fund_id', 'created_at');
         if($this->category_id > 0)
         {
             $opportunities = $opportunities->where('category_id', $this->category_id);
@@ -55,38 +148,6 @@ class OpportunityController extends Controller
         {
             $opportunities = $opportunities->where('published', false);
         }
-        $opportunities = $opportunities->latest()->simplePaginate(10);
-        return view('admin.opportunity.index', [
-            'opportunities' => $opportunities,
-            'count' => ($request->query('page', 1) - 1) * 10,
-            'categories' => Category::select('id', 'name')->get(),
-            'education' => Education::select('id', 'name')->get(),
-            'locations' => Location::select('id', 'name')->get()
-        ]);
-    }
-
-    public function create()
-    {
-        return back()->with(['success' => 'Create not available yet!']);
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function edit(Opportunity $opportunity)
-    {
-        return back()->with(['success' => 'Edit not available yet!']);
-    }
-
-    public function update(Request $request, Opportunity $opportunity)
-    {
-        //
-    }
-
-    public function destroy(Opportunity $opportunity)
-    {
-        return back()->with(['success' => 'Delete not available yet!']);
+        return $opportunities;
     }
 }

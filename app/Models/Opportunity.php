@@ -11,6 +11,7 @@ use App\Models\Area;
 use App\Models\Organization;
 use App\Models\Fund;
 use App\Models\Location;
+use Illuminate\Support\Str;
 
 class Opportunity extends Model
 {
@@ -36,6 +37,17 @@ class Opportunity extends Model
         'updated_at',
         'deadline'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+        Opportunity::creating(function ($opportunity) {
+            $opportunity->slug = Str::Slug($opportunity->name.' '.((Opportunity::max('id') ?? 0) + 1));
+        });
+        Opportunity::updating(function ($opportunity) {
+            $opportunity->slug = Str::Slug($opportunity->name.' '.substr($opportunity->slug, strrpos($opportunity->slug, '-') + 1));
+        });
+    }
 
     public function user()
     {
