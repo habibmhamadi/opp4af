@@ -1,5 +1,5 @@
 <div
-    class="fixed inset-0 w-full h-full z-20 bg-black bg-opacity-50 duration-300 overflow-y-auto"
+    class="fixed hidden modal inset-0 w-full h-full z-20 bg-black bg-opacity-50 duration-300 overflow-y-auto"
     x-show="modal"
     x-transition:enter="transition duration-300"
     x-transition:enter-start="opacity-0"

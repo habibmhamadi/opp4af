@@ -15,7 +15,7 @@
         @yield('css')
 
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
+
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -33,6 +33,16 @@
                 {{ $slot }}
             </main>
         </div>
+        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script>
+            try {
+                document.addEventListener('DOMContentLoaded', (e) => {
+                    document.querySelector('.modal').classList.remove('hidden')
+                })
+            } catch (e) {
+                console.log('')
+            }
+        </script>
         @yield('script')
     </body>
 </html>
