@@ -46,6 +46,7 @@ class Opportunity extends Model
         });
         Opportunity::updating(function ($opportunity) {
             $opportunity->slug = Str::Slug($opportunity->name.' '.substr($opportunity->slug, strrpos($opportunity->slug, '-') + 1));
+            $opportunity->published = false;
         });
     }
 

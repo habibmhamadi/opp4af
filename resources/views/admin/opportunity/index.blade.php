@@ -16,26 +16,26 @@
                 <div class="p-6 bg-white border-b border-gray-200 overflow-x-auto">
                     <x-auth-session-status class="mb-4" :status="session('success')" />
                     <div class="grid grid-cols-2 md:grid-cols-4 mb-4 gap-x-4 gap-y-2">
-                        <select onchange="updateFilter()" name="category_id" class="w-full border-none text-gray-600 bg-gray-50 rounded px-3 py-2 outline-none">
-                            <option {{ request()->query('category_id', 0) == 0 ? 'selected' : '' }} value="0"></option>
+                        <select onchange="updateFilter()" name="category_id" class="w-full border-none text-gray-500 bg-gray-50 rounded px-3 py-2 outline-none">
+                            <option {{ request()->query('category_id', 0) == 0 ? 'selected' : '' }} value="0">-- {{__('Category')}} --</option>
                             @foreach($categories as $category)
                                 <option {{ request()->query('category_id', 0) == $category->id ? 'selected' : '' }} value="{{$category->id}}" class="py-1">{{ $category->name }}</option>
                             @endforeach
                         </select>
-                        <select onchange="updateFilter()" name="education_id" class="w-full border-none text-gray-600 bg-gray-50 rounded px-3 py-2 outline-none">
-                            <option {{ request()->query('education_id', 0) == 0 ? 'selected' : '' }} value="0"></option>
+                        <select onchange="updateFilter()" name="education_id" class="w-full border-none text-gray-500 bg-gray-50 rounded px-3 py-2 outline-none">
+                            <option {{ request()->query('education_id', 0) == 0 ? 'selected' : '' }} value="0">-- {{__('Education')}} --</option>
                             @foreach($education as $edu)
                                 <option {{ request()->query('education_id', 0) == $edu->id ? 'selected' : '' }} value="{{$edu->id}}" class="py-1">{{ $edu->name }}</option>
                             @endforeach
                         </select>
-                        <select onchange="updateFilter()" name="location_id" class="w-full border-none text-gray-600 bg-gray-50 rounded px-3 py-2 outline-none">
-                            <option {{ request()->query('location_id', 0) == 0 ? 'selected' : '' }} value="0"></option>
+                        <select onchange="updateFilter()" name="location_id" class="w-full border-none text-gray-500 bg-gray-50 rounded px-3 py-2 outline-none">
+                            <option {{ request()->query('location_id', 0) == 0 ? 'selected' : '' }} value="0">-- {{__('Location')}} --</option>
                             @foreach($locations as $location)
                                 <option {{ request()->query('location_id', 0) == $location->id ? 'selected' : '' }} value="{{$location->id}}" class="py-1">{{ $location->name }}</option>
                             @endforeach
                         </select>
-                        <select onchange="updateFilter()" name="state" class="w-full border-none text-gray-600 bg-gray-50 rounded px-3 py-2 outline-none">
-                            <option {{ request()->query('state', '') == '' ? 'selected' : '' }} value=""></option>
+                        <select onchange="updateFilter()" name="state" class="w-full border-none text-gray-500 bg-gray-50 rounded px-3 py-2 outline-none">
+                            <option {{ request()->query('state', '') == '' ? 'selected' : '' }} value="">-- {{__('State')}} --</option>
                             <option {{ request()->query('state', '') == 'published' ? 'selected' : '' }} value="published">{{ __('Published') }}</option>
                             <option {{ request()->query('state', '') == 'unpublished' ? 'selected' : '' }} value="unpublished">{{ __('Un-published') }}</option>
                             <option {{ request()->query('state', '') == 'open' ? 'selected' : '' }} value="open">{{ __('Open') }}</option>
@@ -70,6 +70,12 @@
                                     </td>
                                     <td class="py-3 px-6 text-center">
                                         <div class="flex item-center justify-center">
+                                            <a href="{{ route('admin.opportunity.show', $opportunity->id) }}" class="mr-2 transform hover:text-purple-500 hover:scale-110">
+                                                <svg class="w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                </svg>
+                                            </a>
                                             <a href="{{ route('admin.opportunity.edit', $opportunity->id) }}" class="mr-2 transform hover:text-purple-500 hover:scale-110">
                                                 <svg class="w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />

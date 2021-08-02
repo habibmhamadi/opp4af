@@ -21,9 +21,7 @@ use App\Http\Controllers\admin\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'admin.dashboard');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function() {
     Route::view('/', 'admin.dashboard')->name('dashboard');
@@ -38,6 +36,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
         'area' => AreaController::class,
         'user' => UserController::class,
     ]);
+
+    Route::post('opportunity/publish/{opportunity}', [OpportunityController::class, 'publish'])->name('opportunity.publish');
+    Route::post('opportunity/unpublish/{opportunity}', [OpportunityController::class, 'unPublish'])->name('opportunity.unpublish');
 
 });
 

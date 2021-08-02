@@ -5,13 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOpportunityRequest;
 use App\Http\Requests\UpdateOpportunityRequest;
-use App\Models\Area;
-use App\Models\Category;
-use App\Models\Education;
-use App\Models\Fund;
-use App\Models\Location;
 use App\Models\Opportunity;
-use App\Models\Organization;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
@@ -55,6 +49,13 @@ class OpportunityController extends Controller
         return redirect()->route('admin.opportunity.index')->with(['success' => 'Create success.']);
     }
 
+    public function show(Opportunity $opportunity)
+    {
+        return view('admin.opportunity.show', [
+            'opportunity' => $opportunity
+        ]);
+    }
+
     public function edit(Opportunity $opportunity)
     {
         abort_if(Gate::denies('alter-opportunity', $opportunity), 401);
@@ -87,6 +88,20 @@ class OpportunityController extends Controller
         abort_if(Gate::denies('alter-opportunity', $opportunity), 401);
         $opportunity->delete();
         return back()->with(['success' => 'Delete success.']);
+    }
+
+    public function publish(Opportunity $opportunity)
+    {
+        abort_if(Gate::denies('admin'), 401);
+        $opportunity->update(['published' => true]);
+        return redirect()->route('admin.opportunity.index')->with(['success' => 'Publish success.']);
+    }
+
+    public function unPublish(Opportunity $opportunity)
+    {
+        abort_if(Gate::denies('admin'), 401);
+        $opportunity->update(['published' => false]);
+        return redirect()->route('admin.opportunity.index')->with(['success' => 'Un-publish success.']);
     }
 
     private function getRouteDatas($allData = true)
