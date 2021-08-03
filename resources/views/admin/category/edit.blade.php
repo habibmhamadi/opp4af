@@ -9,14 +9,14 @@
         <div class="max-w-7xl mx-auto flex justify-center sm:px-6 lg:px-8">
             <div class="bg-white w-full sm:w-2/5 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <form x-data="{ active : true }" method="post" action="{{ route('admin.category.update', $category->id) }}">
+                    <form method="post" action="{{ route('admin.category.update', $category->id) }}">
                         @csrf
                         @method('PUT')
                         <x-label for="name" :value="__('Name')" />
 
                         <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="$category->name" required autofocus />
                         @error('name') <div class="my-1 text-red-500">{{ $message }}</div> @enderror
-                        <x-button x-bind:disabled="!active" x-on:click="active = false" class="mt-3" >
+                        <x-button class="mt-3" >
                             {{ __('Save') }}
                         </x-button>
                     </form>

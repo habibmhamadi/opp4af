@@ -13,7 +13,7 @@
         <div class="max-w-7xl mx-auto flex justify-center sm:px-6 lg:px-8">
             <div class="bg-white w-full overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <form x-data="{ active : true }" method="post" action="{{ route('admin.opportunity.update', $opportunity->id) }}">
+                    <form method="post" action="{{ route('admin.opportunity.update', $opportunity->id) }}">
                         @csrf
                         @method('PUT')
                         <div class="grid grid-cols-3 gap-4">
@@ -111,7 +111,7 @@
                             @error('description') <div class="my-1 text-red-500">{{ $message }}</div> @enderror
                         </div>
 
-                        <x-button x-bind:disabled="!active" class="mt-3" >
+                        <x-button class="mt-3" >
                             {{ __('Save') }}
                         </x-button>
                     </form>
