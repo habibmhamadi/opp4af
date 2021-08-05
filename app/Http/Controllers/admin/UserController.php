@@ -33,14 +33,25 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        abort_if(Gate::denies('admin'), 401);
+        abort_if(Gate::denies('alter-profile', $user), 401);
         return view('admin.user.edit', ['user' => $user]);
     }
 
     public function update(Request $request, User $user)
     {
-        abort_if(Gate::denies('admin'), 401);
-        $user->update($request->validate(['name' => 'required|min:3|string']));
+        abort_if(Gate::denies('alter-profile', $user), 401);
+        $validator = ['name' => 'required|min:3|string'];
+        if($request->input('new_password') || $request->input('current_password'))
+        {
+            $validator['current_password'] = ['required', function($attr, $val, $fail) use ($user) {
+                if(!\Hash::check($val, $user->password))
+                {
+                    return $fail('The current password is invalid.');
+                }
+            }];
+            $validator['new_password'] = 'required|min:6|confirmed|string';
+        }
+        $user->update($request->validate($validator));
         return redirect()->route('admin.user.index')->with(['success' => __('Edit success.')]);
     }
 

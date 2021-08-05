@@ -104,7 +104,7 @@ class DatabaseSeeder extends Seeder
              'email' => 'opp4af@gmail.com',
              'is_admin' => true,
              'email_verified_at' => now(),
-             'password' => bcrypt('12341234'),
+             'password' => '12341234',
              'remember_token' => Str::random(10),
          ]);
 

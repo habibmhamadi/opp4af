@@ -43,12 +43,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public static function boot()
+    public function setPasswordAttribute($value)
     {
-        parent::boot();
-        User::creating(function($user){
-            $user->password = bcrypt($user->password);
-        });
+        $this->attributes['password'] = bcrypt($value);
     }
 
     public function opportunities()
