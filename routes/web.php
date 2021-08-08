@@ -21,7 +21,7 @@ use App\Http\Controllers\admin\UserController;
 |
 */
 
-Route::view('/', 'welcome');
+Route::view('/', 'layouts.site');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function() {
     Route::view('/', 'admin.dashboard')->name('dashboard');
