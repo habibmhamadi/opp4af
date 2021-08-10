@@ -1,9 +1,9 @@
 @extends('layouts.site.app')
 
 @section('content')
-    <div class="w-full py-16 relative" style="background-image: url('{{ asset('img/cover.png') }}');">
+    <section id="article_title" class="w-full py-16" style="background-image: url('{{ asset('img/cover.png') }}');">
         <div class="bg-white p-5 shadow lg:mx-56 mx-12 rounded">
-            <div class="flex flex-col sm:flex-row gap-4">
+            <article class="flex flex-col sm:flex-row gap-4">
                 <img class="w-28 h-28 rounded bg-cover" src="{{asset('img/cover.png')}}" alt="">
                 <div class="flex flex-col justify-around gap-1.5">
                     <h1 class="text-2xl">OCIS Master’s and PhD Scholarships for Students from Islamic Countries at the University of Oxford</h1>
@@ -22,14 +22,14 @@
                     </div>
 
                 </div>
-            </div>
+            </article>
         </div>
-    </div>
+    </section>
 
-    <div class="w-full bg-white sm:px-24 px-4 py-16">
+    <section id="content" class="w-full bg-white lg:px-24 px-4 py-16">
         <h1 class="text-2xl uppercase font-bold pb-4 border-b border-gray-500 inline">Opportunity Details</h1>
-        <div class="grid grid-cols-1 sm:grid-cols-3 mt-16">
-            <div class="sm:col-span-2 grid grid-cols-1 gap-y-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 mt-16">
+            <div class="sm:col-span-2 grid grid-cols-1 px-4 gap-y-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-y-6">
                     <div class="flex items-center text-gray-400">
                         <svg class="w-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path></svg>
@@ -122,6 +122,42 @@
                     <p>For more details and specifics of your application documents, visit <span style="color: #ff0000"><a style="color: #ff0000" href="https://www.ox.ac.uk/admissions/graduate/fees-and-funding/fees-funding-and-scholarship-search/oxford-centre-islamic-studies-ocis-scholarships" target="_blank" rel="noopener noreferrer">here</a></span>.</p>
                 </div>
             </div>
+            <aside id="related_content" class="flex flex-col gap-y-4 my-10">
+                <div>
+                    <article class="bg-white rounded shadow flex flex-col p-3 gap-y-5">
+                        <div class="flex gap-x-4 items-center">
+                            <img class="w-16 h-16 bg-cover rounded" src="{{asset('img/cover.png')}}" alt="">
+                            <a href="" class="hover:text-blue-500">
+                                <h2 class="overflow-hidden overflow-ellipsis text-lg" style="-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;">Deakin University Scholarships 2021-2022 (Fully Funded) Deakin University Scholarships 2021-2022 (Fully Funded) </h2>
+                            </a>
+                        </div>
+                        <div class="flex justify-between text-gray-500">
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
+                                <h3 class="text-sm">Scholarship</h3>
+                            </div>
+                            <h3 class="text-sm">1 week</h3>
+                        </div>
+                    </article>
+                </div>
+                <div>
+                    <article class="bg-white rounded shadow flex flex-col p-3 gap-y-5">
+                        <div class="flex gap-x-4 items-center">
+                            <img class="w-16 h-16 bg-cover rounded" src="{{asset('img/cover.png')}}" alt="">
+                            <a href="" class="hover:text-blue-500">
+                                <h2 class="overflow-hidden overflow-ellipsis text-lg" style="-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;">Deakin University Scholarships 2021-2022 (Fully Funded) Deakin University Scholarships 2021-2022 (Fully Funded) </h2>
+                            </a>
+                        </div>
+                        <div class="flex justify-between text-gray-500">
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
+                                <h3 class="text-sm">Scholarship</h3>
+                            </div>
+                            <h3 class="text-sm">1 week</h3>
+                        </div>
+                    </article>
+                </div>
+            </aside>
         </div>
-    </div>
+    </section>
 @endsection

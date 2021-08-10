@@ -7,10 +7,12 @@
         <div></div>
         <div class="flex uppercase flex-col gap-y-1">
             <h1 class=" text-xl font-semibold mb-4">Links</h1>
-            <a href="" class="hover:text-blue-500">Home</a>
-            <a href="" class="hover:text-blue-500">Downloads</a>
-            <a href="" class="hover:text-blue-500">About us</a>
-            <a href="" class="hover:text-blue-500">Privacy Policy</a>
+            <ul>
+                <li><a href="" class="hover:text-blue-500">Home</a></li>
+                <li><a href="" class="hover:text-blue-500">Downloads</a></li>
+                <li><a href="" class="hover:text-blue-500">About us</a></li>
+                <li><a href="" class="hover:text-blue-500">Privacy Policy</a></li>
+            </ul>
         </div>
     </div>
     <hr>
