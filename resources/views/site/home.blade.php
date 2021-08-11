@@ -48,88 +48,17 @@
     </section>
 
     <section id="top_opportunities" class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:px-24 px-4 pt-16 md:pt-0">
-        <article class="rounded shadow flex flex-col gap-2 pb-1">
-            <img class="bg-cover h-52" src="{{asset('img/cover.png')}}" alt="">
-            <div class="flex flex-col gap-2 px-2">
-                <div class="flex items-center text-gray-400">
-                    <svg class="w-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
-                    <p class="text-sm">Scholarship</p>
-                </div>
-                <a href="" class="text-xl hover:text-blue-500">
-                    <h1>Deakin University Scholarships 2021-2022 (Fully Funded)</h1>
-                </a>
-                <div class="flex gap-x-2 text-gray-500 text-sm font-semibold">
-                    <h2>Australia</h2>
-                    <span>|</span>
-                    <h2>Fully Funded</h2>
-                </div>
-            </div>
-        </article>
+        @foreach($scholarships as $opportunity)
+            <x-site.vertical-card :opportunity="$opportunity"/>
+        @endforeach
     </section>
 
     <section id="about_to_close_opportunities" class="sm:px-24 px-4 py-16 my-16 w-full bg-gray-50">
         <h1 class="text-2xl uppercase font-bold pb-4 border-b border-gray-500 inline">Deadline Approach</h1>
         <div class="grid grid-cols-1 md:grid-cols-3 mt-16 gap-5">
-            <article class="bg-white rounded shadow flex flex-col p-3 gap-y-5">
-                <div class="flex gap-x-4 items-center">
-                    <img class="w-16 h-16 bg-cover rounded" src="{{asset('img/cover.png')}}" alt="">
-                    <a href="" class="hover:text-blue-500">
-                        <h2 class="overflow-hidden overflow-ellipsis text-lg" style="-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;">Deakin University Scholarships 2021-2022 (Fully Funded) Deakin University Scholarships 2021-2022 (Fully Funded) </h2>
-                    </a>
-                </div>
-                <div class="flex justify-between text-gray-500">
-                    <div class="flex items-center">
-                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
-                        <h3 class="text-sm">Scholarship</h3>
-                    </div>
-                    <h3 class="text-sm">1 week</h3>
-                </div>
-            </article>
-            <article class="bg-white rounded shadow flex flex-col p-3 gap-y-5">
-                <div class="flex gap-x-4 items-center">
-                    <img class="w-16 h-16 bg-cover rounded" src="{{asset('img/cover.png')}}" alt="">
-                    <a href="" class="hover:text-blue-500">
-                        <h2 class="overflow-hidden overflow-ellipsis text-lg" style="-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;">Deakin University Scholarships 2021-2022 (Fully Funded) Deakin University Scholarships 2021-2022 (Fully Funded) </h2>
-                    </a>
-                </div>
-                <div class="flex justify-between text-gray-500">
-                    <div class="flex items-center">
-                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
-                        <h3 class="text-sm">Scholarship</h3>
-                    </div>
-                    <h3 class="text-sm">1 week</h3>
-                </div>
-            </article>
-            <article class="bg-white rounded shadow flex flex-col p-3 gap-y-5">
-                <div class="flex gap-x-4 items-center">
-                    <img class="w-16 h-16 bg-cover rounded" src="{{asset('img/cover.png')}}" alt="">
-                    <a href="" class="hover:text-blue-500">
-                        <h2 class="overflow-hidden overflow-ellipsis text-lg" style="-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;">Deakin University Scholarships 2021-2022 (Fully Funded) Deakin University Scholarships 2021-2022 (Fully Funded) </h2>
-                    </a>
-                </div>
-                <div class="flex justify-between text-gray-500">
-                    <div class="flex items-center">
-                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
-                        <h3 class="text-sm">Scholarship</h3>
-                    </div>
-                    <h3 class="text-sm">1 week</h3>
-                </div>
-            </article>
-            <article class="bg-white rounded shadow flex flex-col p-3 gap-y-5">
-                <div class="flex gap-x-4 items-center">
-                    <img class="w-16 h-16 bg-cover rounded" src="{{asset('img/cover.png')}}" alt="">
-                    <a href="" class="hover:text-blue-500">
-                        <h2 class="overflow-hidden overflow-ellipsis text-lg" style="-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;">Deakin University Scholarships 2021-2022 (Fully Funded) Deakin University Scholarships 2021-2022 (Fully Funded) </h2>
-                    </a>
-                </div>
-                <div class="flex justify-between text-gray-500">
-                    <div class="flex items-center">
-                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
-                        <h3 class="text-sm">Scholarship</h3>
-                    </div>
-                    <h3 class="text-sm">1 week</h3>
-                </div>
-            </article>
+            @foreach($deadlines as $opportunity)
+                <x-site.horizontal-card :opportunity="$opportunity" />
+            @endforeach
         </div>
     </section>
 
@@ -141,66 +70,9 @@
     <section id="latest_opportunities" class="sm:px-24 px-4 py-16 my-16 w-full bg-gray-50">
         <h1 class="text-2xl uppercase font-bold pb-4 border-b border-gray-500 inline">Latest Addition</h1>
         <div class="grid grid-cols-1 md:grid-cols-3 mt-16 gap-5">
-            <article class="bg-white rounded shadow flex flex-col p-3 gap-y-5">
-                <div class="flex gap-x-4 items-center">
-                    <img class="w-16 h-16 bg-cover rounded" src="{{asset('img/cover.png')}}" alt="">
-                    <a href="" class="hover:text-blue-500">
-                        <h2 class="overflow-hidden overflow-ellipsis text-lg" style="-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;">Deakin University Scholarships 2021-2022 (Fully Funded) Deakin University Scholarships 2021-2022 (Fully Funded) </h2>
-                    </a>
-                </div>
-                <div class="flex justify-between text-gray-500">
-                    <div class="flex items-center">
-                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
-                        <h3 class="text-sm">Scholarship</h3>
-                    </div>
-                    <h3 class="text-sm">1 week</h3>
-                </div>
-            </article>
-            <article class="bg-white rounded shadow flex flex-col p-3 gap-y-5">
-                <div class="flex gap-x-4 items-center">
-                    <img class="w-16 h-16 bg-cover rounded" src="{{asset('img/cover.png')}}" alt="">
-                    <a href="" class="hover:text-blue-500">
-                        <h2 class="overflow-hidden overflow-ellipsis text-lg" style="-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;">Deakin University Scholarships 2021-2022 (Fully Funded) Deakin University Scholarships 2021-2022 (Fully Funded) </h2>
-                    </a>
-                </div>
-                <div class="flex justify-between text-gray-500">
-                    <div class="flex items-center">
-                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
-                        <h3 class="text-sm">Scholarship</h3>
-                    </div>
-                    <h3 class="text-sm">1 week</h3>
-                </div>
-            </article>
-            <article class="bg-white rounded shadow flex flex-col p-3 gap-y-5">
-                <div class="flex gap-x-4 items-center">
-                    <img class="w-16 h-16 bg-cover rounded" src="{{asset('img/cover.png')}}" alt="">
-                    <a href="" class="hover:text-blue-500">
-                        <h2 class="overflow-hidden overflow-ellipsis text-lg" style="-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;">Deakin University Scholarships 2021-2022 (Fully Funded) Deakin University Scholarships 2021-2022 (Fully Funded) </h2>
-                    </a>
-                </div>
-                <div class="flex justify-between text-gray-500">
-                    <div class="flex items-center">
-                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
-                        <h3 class="text-sm">Scholarship</h3>
-                    </div>
-                    <h3 class="text-sm">1 week</h3>
-                </div>
-            </article>
-            <article class="bg-white rounded shadow flex flex-col p-3 gap-y-5">
-                <div class="flex gap-x-4 items-center">
-                    <img class="w-16 h-16 bg-cover rounded" src="{{asset('img/cover.png')}}" alt="">
-                    <a href="" class="hover:text-blue-500">
-                        <h2 class="overflow-hidden overflow-ellipsis text-lg" style="-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;">Deakin University Scholarships 2021-2022 (Fully Funded) Deakin University Scholarships 2021-2022 (Fully Funded) </h2>
-                    </a>
-                </div>
-                <div class="flex justify-between text-gray-500">
-                    <div class="flex items-center">
-                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
-                        <h3 class="text-sm">Scholarship</h3>
-                    </div>
-                    <h3 class="text-sm">1 week</h3>
-                </div>
-            </article>
+            @foreach($latests as $latest)
+                <x-site.horizontal-card :opportunity="$opportunity" />
+            @endforeach
         </div>
     </section>
 

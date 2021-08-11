@@ -4,13 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
-use App\Models\Category;
-use App\Models\Education;
-use App\Models\Area;
-use App\Models\Organization;
-use App\Models\Fund;
-use App\Models\Location;
 use Illuminate\Support\Str;
 
 class Opportunity extends Model
@@ -46,7 +39,6 @@ class Opportunity extends Model
         });
         Opportunity::updating(function ($opportunity) {
             $opportunity->slug = Str::Slug($opportunity->name.' '.substr($opportunity->slug, strrpos($opportunity->slug, '-') + 1));
-            $opportunity->published = false;
         });
     }
 
@@ -84,4 +76,32 @@ class Opportunity extends Model
     {
         return $this->belongsToMany(Area::class);
     }
+
+    // Static functions
+
+    public static function latest_scholarships($limit = 3)
+    {
+        return Opportunity::with('category', 'fund', 'locations')
+            ->where('published', true)
+            ->where('category_id', Category::where('name', 'Scholarship')->pluck('id'))
+            ->where('deadline', '>', now())
+            ->latest()->take($limit)->get();
+    }
+
+    public static function deadlines($limit = 6)
+    {
+        return Opportunity::with('category')
+            ->where('published', true)
+            ->where('deadline', '>', now())
+            ->orderBy('deadline')->take($limit)->get();
+    }
+
+    public static function latests($limit = 6)
+    {
+        return Opportunity::with('category')
+            ->where('published', true)
+            ->where('deadline', '>', now())
+            ->latest()->take($limit)->get();
+    }
+
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Opportunity;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Category;
@@ -16,11 +17,7 @@ class DatabaseSeeder extends Seeder
 {
     private $categories = [
         'Scholarship',
-        'Internship',
-        'Workshop',
-        'Fellowship',
         'Job',
-        'Course',
         'Miscellaneous'
     ];
 
@@ -138,9 +135,11 @@ class DatabaseSeeder extends Seeder
             Area::create(['name' => $area]);
         }
 
-        $opportunity = $user->opportunities()->create($this->opportunity);
-        $opportunity->education()->attach([4,5]);
-        $opportunity->locations()->attach([1]);
-        $opportunity->areas()->attach([2,6]);
+        foreach (Opportunity::factory()->count(12)->create() as $opportunity)
+        {
+            $opportunity->education()->attach([4, 5]);
+            $opportunity->locations()->attach([1]);
+            $opportunity->areas()->attach([2,6]);
+        }
     }
 }

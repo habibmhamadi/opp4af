@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\EducationController;
 use App\Http\Controllers\admin\FundController;
 use App\Http\Controllers\admin\AreaController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\site\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +22,8 @@ use App\Http\Controllers\admin\UserController;
 |
 */
 
-Route::view('/', 'site.home');
-Route::view('/opp', 'site.opportunity');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/opportunities/{opp}', [HomeController::class, 'opportunity'])->name('opportunity');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function() {
     Route::view('/', 'admin.dashboard')->name('dashboard');

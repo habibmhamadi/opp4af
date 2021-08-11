@@ -67,8 +67,9 @@ class OpportunityController extends Controller
     public function update(UpdateOpportunityRequest $request, Opportunity $opportunity)
     {
         abort_if(Gate::denies('alter-opportunity', $opportunity), 401);
-        $request->validated();
-        $opportunity->update($request->except(['image', 'location_ids', 'education_ids', 'area_ids']));
+        $validated = $request->validated();
+        $validated['published'] = false;
+        $opportunity->update($validated);
 
         // TO DO REPLACE IMAGE
 
@@ -126,7 +127,7 @@ class OpportunityController extends Controller
         $this->category_id = $request->query('category_id', 0);
         $this->education_id = $request->query('education_id', 0);
         $this->location_id = $request->query('location_id', 0);
-        $this->state = $request->query('state', 'unpublished');
+        $this->state = $request->query('state', );
     }
 
     private function applyRouteFilters($opportunities)
