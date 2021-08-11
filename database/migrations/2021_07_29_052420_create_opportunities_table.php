@@ -15,11 +15,11 @@ class CreateOpportunitiesTable extends Migration
     {
         Schema::create('opportunities', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->index();
             $table->string('slug')->unique();
             $table->foreignId('user_id')->nullable()->onDelete('set null');
-            $table->foreignId('category_id')->nullable()->onDelete('set null');
-            $table->foreignId('fund_id')->nullable()->onDelete('set null');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('fund_id')->constrained()->onDelete('cascade');
             $table->foreignId('organization_id')->nullable()->onDelete('set null');
             $table->string('website')->nullable();
             $table->string('apply_link')->nullable();

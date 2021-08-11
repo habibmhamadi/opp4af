@@ -18,8 +18,8 @@ class HomeController extends Controller
         ]);
     }
 
-    public function opportunity()
+    public function opportunity(Opportunity $opportunity)
     {
-        return view('site.opportunity');
+        return view('site.opportunity', compact($opportunity));
     }
 }

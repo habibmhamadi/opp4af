@@ -22,7 +22,7 @@ class OpportunityController extends Controller
         $opportunities = Opportunity::with('category')
             ->select('id', 'name', 'category_id', 'fund_id', 'created_at');
 
-        $opportunities = $this->applyRouteFilters($opportunities)->latest()->simplePaginate(10);
+        $opportunities = $this->applyRouteFilters($opportunities)->latest('id')->simplePaginate(10);
         $datas = $this->getRouteDatas(false);
         $datas['opportunities'] = $opportunities;
         $datas['count'] = ($request->query('page', 1) - 1) * 10;

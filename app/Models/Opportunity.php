@@ -35,10 +35,18 @@ class Opportunity extends Model
     {
         parent::boot();
         Opportunity::creating(function ($opportunity) {
-            $opportunity->slug = Str::Slug($opportunity->name.' '.((Opportunity::max('id') ?? 0) + 1));
+            $opportunity->slug = Str::slug($opportunity->name);
+            if(Opportunity::where('slug', $opportunity->slug)->first())
+            {
+                $opportunity->slug = $opportunity->slug.'-'.((Opportunity::max('id') ?? 0) + 1);
+            }
         });
         Opportunity::updating(function ($opportunity) {
-            $opportunity->slug = Str::Slug($opportunity->name.' '.substr($opportunity->slug, strrpos($opportunity->slug, '-') + 1));
+            $opportunity->slug = Str::slug($opportunity->name);
+            if(Opportunity::where('slug', $opportunity->slug))
+            {
+                $opportunity->slug = $opportunity->slug.'-'.$opportunity->id;
+            }
         });
     }
 

@@ -1,7 +1,7 @@
 <article class="bg-white rounded shadow flex flex-col p-3 gap-y-5">
     <div class="flex gap-x-4 items-center">
         <img class="w-16 h-16 bg-cover rounded" src="{{asset('img/cover.png')}}" alt="">
-        <a href="" class="hover:text-blue-500">
+        <a href="{{ route('opportunity', $opportunity->slug)}}" class="hover:text-blue-500">
             <h2 class="overflow-hidden overflow-ellipsis text-lg" style="-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;">{{$opportunity->name}}</h2>
         </a>
     </div>

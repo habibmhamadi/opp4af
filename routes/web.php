@@ -23,7 +23,7 @@ use App\Http\Controllers\site\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/opportunities/{opp}', [HomeController::class, 'opportunity'])->name('opportunity');
+Route::get('/opportunities/{opportunity:slug}', [HomeController::class, 'opportunity'])->name('opportunity');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function() {
     Route::view('/', 'admin.dashboard')->name('dashboard');
