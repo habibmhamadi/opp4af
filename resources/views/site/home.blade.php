@@ -1,4 +1,9 @@
 @extends('layouts.site.app')
+
+@section('title')
+    Opp4af - Browse Latest Opportunities in Afghanistan
+@endsection
+
 @section('content')
     <section id="search_bar" class="w-full" style="background-image: url('{{ asset('img/cover.png') }}');">
         <div class="max-w-4xl mx-auto px-4 sm:px-6">

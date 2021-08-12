@@ -20,6 +20,9 @@ class HomeController extends Controller
 
     public function opportunity(Opportunity $opportunity)
     {
-        return view('site.opportunity', compact($opportunity));
+        return view('site.opportunity')->with([
+            'opportunity' => $opportunity,
+            'related_opps' => Opportunity::related_opps($opportunity->category->id, 4)
+        ]);
     }
 }

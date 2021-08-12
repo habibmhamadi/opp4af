@@ -112,4 +112,13 @@ class Opportunity extends Model
             ->latest()->take($limit)->get();
     }
 
+    public static function related_opps($category_id, $limit = 4)
+    {
+        return Opportunity::with('category')
+            ->where('published', true)
+            ->where('deadline', '>', now())
+            ->where('category_id', $category_id)
+            ->latest()->take($limit)->get();
+    }
+
 }

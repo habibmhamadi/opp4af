@@ -16,5 +16,5 @@
         </div>
     </div>
     <hr>
-    <p class="text-center py-8">&copy; Copyright 2021 <strong>Opp4af.</strong> All rights reserved.</p>
+    <p class="text-center py-8">&copy; Copyright {{ date("Y") }} <strong>Opp4af.</strong> All rights reserved.</p>
 </footer>
