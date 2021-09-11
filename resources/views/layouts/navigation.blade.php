@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a class="text-xl" href="{{ route('admin.dashboard') }}">
-                        OPP4AF
+                        <img class="w-8" src="{{asset('icons/opp4af-logo.png')}}" alt="Opp4af - Opportunity for Afghans">
                     </a>
                 </div>
 
@@ -24,6 +24,11 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex">
                     <x-nav-link :href="route('admin.user.index')" :active="request()->routeIs('admin.user.*')">
                         {{ __('Users') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex">
+                    <x-nav-link :href="route('admin.subscriber.index')" :active="request()->routeIs('admin.subscriber.*')">
+                        {{ __('Subscribers') }}
                     </x-nav-link>
                 </div>
 
@@ -137,6 +142,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('admin.user.index')" :active="request()->routeIs('admin.user.*')">
                 {{ __('Users') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.subscriber.index')" :active="request()->routeIs('admin.subscriber.*')">
+                {{ __('Subscribers') }}
             </x-responsive-nav-link>
         </div>
 

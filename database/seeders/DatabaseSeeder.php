@@ -135,7 +135,7 @@ class DatabaseSeeder extends Seeder
             Area::create(['name' => $area]);
         }
 
-        foreach (Opportunity::factory()->count(10000)->create() as $opportunity)
+        foreach (Opportunity::factory()->count(20)->create() as $opportunity)
         {
             $opportunity->education()->attach([4, 5]);
             $opportunity->locations()->attach([1]);

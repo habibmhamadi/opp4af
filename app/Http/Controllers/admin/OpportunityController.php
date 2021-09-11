@@ -9,9 +9,12 @@ use App\Models\Opportunity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use App\Traits\ImageUpload;
 
 class OpportunityController extends Controller
 {
+    use ImageUpload;
+
     public function __construct(Request $request)
     {
         $this->getRouteFilters($request);
@@ -36,11 +39,10 @@ class OpportunityController extends Controller
 
     public function store(StoreOpportunityRequest $request)
     {
-        $request->validated();
+        $validated = $request->except(['image', 'location_ids', 'education_ids', 'area_ids']);
+        $validated['image'] = $this->uploadImage($request->file('image'));
         $opportunity = auth()->user()->opportunities()
-            ->create($request->except(['image', 'location_ids', 'education_ids', 'area_ids']));
-
-        // TO DO SAVE IMAGE
+            ->create($validated);
 
         $opportunity->education()->attach($request->only('education_ids')['education_ids']);
         $opportunity->locations()->attach($request->only('location_ids')['location_ids']);
@@ -69,9 +71,12 @@ class OpportunityController extends Controller
         abort_if(Gate::denies('alter-opportunity', $opportunity), 401);
         $validated = $request->validated();
         $validated['published'] = false;
+        if($request->hasFile('image'))
+        {
+            $this->deleteImage($opportunity->image);
+            $validated['image'] = $this->uploadImage($request->file('image'));
+        }
         $opportunity->update($validated);
-
-        // TO DO REPLACE IMAGE
 
         $opportunity->education()->detach();
         $opportunity->locations()->detach();
@@ -87,6 +92,7 @@ class OpportunityController extends Controller
     public function destroy(Opportunity $opportunity)
     {
         abort_if(Gate::denies('alter-opportunity', $opportunity), 401);
+        $this->deleteImage($opportunity->image);
         $opportunity->delete();
         return back()->with(['success' => 'Delete success.']);
     }

@@ -29,6 +29,7 @@ class OpportunityFactory extends Factory
             'deadline' => now()->addDays(rand(1, 60)),
             'description' => $this->faker->text(500),
             'user_id' => 1,
+            'image' => $this->faker->imageUrl(320, 240),
             'published' => true
         ];
     }

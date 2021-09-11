@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
 class Opportunity extends Model
@@ -18,6 +19,7 @@ class Opportunity extends Model
         'fund_id',
         'organization_id',
         'website',
+        'image',
         'apply_link',
         'reference',
         'deadline',
@@ -119,6 +121,16 @@ class Opportunity extends Model
             ->where('deadline', '>', now())
             ->where('category_id', $category_id)
             ->latest()->take($limit)->get();
+    }
+
+    public function getImageUrl()
+    {
+        if(!$this->image) return null;
+        if(preg_match('/http.*/', $this->image))
+        {
+            return $this->image;
+        }
+        return route('home').'/images/'.$this->image;
     }
 
 }

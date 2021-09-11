@@ -13,7 +13,7 @@
         <div class="max-w-7xl mx-auto flex justify-center sm:px-6 lg:px-8">
             <div class="bg-white w-full overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <form method="post" action="{{ route('admin.opportunity.store') }}">
+                    <form method="post" enctype="multipart/form-data" action="{{ route('admin.opportunity.store') }}">
                         @csrf
                         <div class="grid grid-cols-3 gap-4">
                             <div>
@@ -100,7 +100,7 @@
                             </div>
                             <div>
                                 <x-label for="image" :value="__('Image')" :required="true" />
-                                <x-input id="image" class="block mt-1 w-full" type="file" accept="image/*" name="image"  autofocus />
+                                <x-input id="image" class="block mt-1 w-full" type="file" accept="image/*" name="image" required autofocus />
                                 @error('image') <div class="my-1 text-red-500">{{ $message }}</div> @enderror
                             </div>
                         </div>

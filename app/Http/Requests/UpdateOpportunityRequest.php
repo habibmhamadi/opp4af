@@ -25,7 +25,7 @@ class UpdateOpportunityRequest extends FormRequest
     {
         $storeObj = new StoreOpportunityRequest();
         $rules = $storeObj->rules();
-        $rules['image'] = 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048';
+        $rules['image'] = 'nullable|image|mimes:jpeg,png,jpg,gif|max:60';
         return $rules;
     }
 }

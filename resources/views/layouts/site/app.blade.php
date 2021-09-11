@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title')</title>
-
+    @yield('head')
+    @include('layouts.site.favicon')
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @yield('css')
 
 </head>
 <body class="font-sans antialiased bg-white">
@@ -25,5 +26,6 @@
 @include('layouts.site.footer')
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}" defer></script>
+@yield('script')
 </body>
 </html>

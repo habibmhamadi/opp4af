@@ -21,6 +21,7 @@ class CreateOpportunitiesTable extends Migration
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->foreignId('fund_id')->constrained()->onDelete('cascade');
             $table->foreignId('organization_id')->nullable()->onDelete('set null');
+            $table->string('image');
             $table->string('website')->nullable();
             $table->string('apply_link')->nullable();
             $table->string('reference')->nullable();
