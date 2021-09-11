@@ -8,7 +8,7 @@
     <meta property="og:title" content="Opp4af - Search for Opportunities">
     <meta property="og:url" content="{{route('opportunities')}}">
     <meta property="og:site_name" content="Opportunity for Afghans">
-    <meta property="og:image" content="{{asset('img/cover.png')}}">
+    <meta property="og:image" content="{{asset('img/preview.jpg')}}">
 @endsection
 
 @section('css')
@@ -65,9 +65,13 @@
                 <input id="searchInput" name="searchInput" type="search" value="{{$query}}" placeholder="Search..." class="w-full sm:w-3/4 border-gray-300 rounded p-2 focus:ring-blue-200">
             </form>
             <section id="opportunities" class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-16 md:pt-0 mt-2 sm:mt-10">
-                @foreach($opportunities as $opportunity)
-                    <x-site.horizontal-card :opportunity="$opportunity" />
-                @endforeach
+                @if($opportunities->count())
+                    @foreach($opportunities as $opportunity)
+                        <x-site.horizontal-card :opportunity="$opportunity" />
+                    @endforeach
+                @else
+                    <p>{{__('No match found.')}}</p>
+                @endif
             </section>
             <div class="mt-10">
                 {{$opportunities->links()}}

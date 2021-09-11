@@ -8,7 +8,7 @@
     <meta property="og:title" content="OPP4AF - {{$opportunity->name}}">
     <meta property="og:url" content="https://www.opp4af.com/{{$opportunity->slug}}">
     <meta property="og:site_name" content="Opportunity for Afghans">
-    <meta property="og:image" content="{{$opportunity->image}}">
+    <meta property="og:image" content="{{$opportunity->getImageUrl()}}">
 
 @endsection
 

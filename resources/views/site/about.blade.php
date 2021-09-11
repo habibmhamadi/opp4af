@@ -8,7 +8,7 @@
     <meta property="og:title" content="About - Opportunity for Afghans">
     <meta property="og:url" content="{{route('about')}}">
     <meta property="og:site_name" content="Opportunity for Afghans">
-    <meta property="og:image" content="{{asset('img/cover.png')}}">
+    <meta property="og:image" content="{{asset('img/preview.jpg')}}">
 @endsection
 
 @section('css')

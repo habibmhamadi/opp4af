@@ -8,7 +8,7 @@
     <meta property="og:title" content="OPP4AF - Explore Latest Oppurtunities for Afghanistan">
     <meta property="og:url" content="https://www.opp4af.com">
     <meta property="og:site_name" content="Opportunity for Afghans">
-    <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/opportunity-for-afghans-691f4.appspot.com/o/opp4af_thumbnail.jpg?alt=media&amp;token=1759b5ae-a765-4d40-bcbe-a731e3d0885d">
+    <meta property="og:image" content="{{asset('img/preview.jpg')}}">
 @endsection
 
 @section('content')
