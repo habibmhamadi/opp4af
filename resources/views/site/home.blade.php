@@ -75,8 +75,8 @@
     </section>
 
     <section id="ads_placement" class="grid grid-cols-1 md:grid-cols-2 bg-white px-24 gap-5">
-        <h1 class="text-xl">Ads 1</h1>
-        <h1 class="text-xl">Ads 2</h1>
+        <h1 class="text-xl"></h1>
+        <h1 class="text-xl"></h1>
     </section>
 
     <section id="latest_opportunities" class="sm:px-24 px-4 py-16 my-16 w-full bg-gray-50">

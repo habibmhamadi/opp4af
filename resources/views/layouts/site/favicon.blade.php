@@ -18,6 +18,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="language" content="English">
 <meta name="author" content="Habib Mhamadi">
-<meta name="robots" content="index, follow">
 <meta name="googlebot" content="index, follow">
+<meta name="robots" content="index, follow">
 <meta name="keywords" content="scholarships, jobs, opportunities, afghanistan, courses, online, remote, platform, youths">
