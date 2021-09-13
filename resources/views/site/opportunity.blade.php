@@ -16,7 +16,7 @@
     <section id="article_title" class="w-full py-16" style="background-image: url('{{ asset('img/cover.png') }}');">
         <div class="bg-white p-5 shadow lg:mx-56 mx-12 rounded">
             <article class="flex flex-col sm:flex-row gap-4">
-                <img class="w-28 h-28 rounded bg-cover" src="{{asset('img/cover.png')}}" alt="">
+                <img class="w-28 h-28 rounded bg-cover" src="{{$opportunity->getImageUrl()}}" alt="">
                 <div class="flex flex-col justify-around gap-1.5">
                     <h1 class="text-2xl"> {{ $opportunity->name }}</h1>
                         <div class="flex items-center text-gray-400">
@@ -77,7 +77,7 @@
                     </div>
                     <br><br>
                     <div>
-                        {{ $opportunity->description }}
+                        {!! $opportunity->description !!}
                     </div>
                 </div>
             </div>
