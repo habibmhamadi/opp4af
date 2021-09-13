@@ -6,7 +6,9 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="googlebot" content="noindex, nofollow" />
         <meta name="robots" content="noindex, nofollow" />
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>
+            @yield('title')
+        </title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -38,7 +40,10 @@
         <script>
             try {
                 document.addEventListener('DOMContentLoaded', (e) => {
-                    document.querySelector('.modal').classList.remove('hidden')
+                    var modal = document.getElementById('modal')
+                    if(modal) {
+                        modal.classList.remove('hidden')
+                    }
                 })
             } catch (e) {
                 console.log('')

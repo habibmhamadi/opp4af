@@ -23,7 +23,7 @@ class OpportunityController extends Controller
     public function index(Request $request)
     {
         $opportunities = Opportunity::with('category')
-            ->select('id', 'name', 'category_id', 'fund_id', 'created_at');
+            ->select('id', 'name', 'published', 'category_id', 'fund_id', 'created_at');
 
         $opportunities = $this->applyRouteFilters($opportunities)->latest('id')->simplePaginate(10);
         $datas = $this->getRouteDatas(false);
@@ -77,7 +77,6 @@ class OpportunityController extends Controller
             $validated['image'] = $this->uploadImage($request->file('image'));
         }
         $opportunity->update($validated);
-
         $opportunity->education()->detach();
         $opportunity->locations()->detach();
         $opportunity->areas()->detach();

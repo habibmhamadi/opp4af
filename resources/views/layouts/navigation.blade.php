@@ -5,8 +5,9 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a class="text-xl" href="{{ route('admin.dashboard') }}">
-                        <img class="w-8" src="{{asset('icons/opp4af-logo.png')}}" alt="Opp4af - Opportunity for Afghans">
+                    <a href="{{ route('admin.dashboard') }}" class="flex items-center">
+                        <img src="{{asset('icons/opp4af-logo.png')}}" class="w-8" alt="Opp4af - Opportunity for Afghans">
+                        <h1 class="ml-2 font-semibold text-xl">Opportunity for Afghans</h1>
                     </a>
                 </div>
 

@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
 class Opportunity extends Model
@@ -94,7 +93,9 @@ class Opportunity extends Model
         return Opportunity::with('category', 'fund', 'locations')
             ->where('published', true)
             ->where('category_id', Category::where('name', 'Scholarship')->pluck('id'))
-            ->where('deadline', '>', now())
+            ->where(function ($w){
+                $w->where('deadline', '>', now())->orWhere('deadline');
+            })
             ->latest()->take($limit)->get();
     }
 
@@ -102,7 +103,9 @@ class Opportunity extends Model
     {
         return Opportunity::with('category')
             ->where('published', true)
-            ->where('deadline', '>', now())
+            ->where(function ($w){
+                $w->where('deadline', '>', now())->orWhere('deadline');
+            })
             ->orderBy('deadline')->take($limit)->get();
     }
 
@@ -110,7 +113,9 @@ class Opportunity extends Model
     {
         return Opportunity::with('category')
             ->where('published', true)
-            ->where('deadline', '>', now())
+            ->where(function ($w){
+                $w->where('deadline', '>', now())->orWhere('deadline');
+            })
             ->latest()->take($limit)->get();
     }
 
@@ -118,9 +123,10 @@ class Opportunity extends Model
     {
         return Opportunity::with('category')
             ->where('published', true)
-            ->where('deadline', '>', now())
             ->where('category_id', $category_id)
-            ->latest()->take($limit)->get();
+            ->where(function ($w){
+                $w->where('deadline', '>', now())->orWhere('deadline');
+            })->latest()->take($limit)->get();
     }
 
     public function getImageUrl()
@@ -131,6 +137,15 @@ class Opportunity extends Model
             return $this->image;
         }
         return route('home').'/images/'.$this->image;
+    }
+
+    public function getDeadline()
+    {
+        if($this->deadline)
+        {
+            return $this->deadline->diffForHumans();
+        }
+        return null;
     }
 
 }

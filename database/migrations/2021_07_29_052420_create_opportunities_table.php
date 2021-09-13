@@ -25,7 +25,7 @@ class CreateOpportunitiesTable extends Migration
             $table->string('website')->nullable();
             $table->string('apply_link')->nullable();
             $table->string('reference')->nullable();
-            $table->date('deadline');
+            $table->date('deadline')->nullable();
             $table->longText('description');
             $table->boolean('published')->default(false);
             $table->timestamps();

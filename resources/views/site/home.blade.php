@@ -1,14 +1,19 @@
 @extends('layouts.site.app')
 
 @section('head')
-    <title>Opp4af - Browse Latest Opportunities for Afghanistan</title>
-    <meta name="title" content="Opp4af - Browse Latest Opportunities for Afghanistan">
-    <meta name="description" content="Opp4af is about exploring latest opportunities containing scholarships, internships, jobs, workshops, fellowships, competitions, courses, online events and more.">
+    <title>Find Your Dream Opportunities - Opportunities in Afghanistan</title>
+    <meta name="title" content="Find Your Dream Opportunities - Opportunities in Afghanistan">
+    <meta name="description" content="Opportunity for Afghans is a trustworthy source of educations, jobs, fellowships, conferences etc.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="OPP4AF - Explore Latest Oppurtunities for Afghanistan">
-    <meta property="og:url" content="https://www.opp4af.com">
+    <meta property="og:title" content="Find Your Dream Opportunities - Opportunities in Afghanistan">
+    <meta property="og:url" content="{{route('home')}}">
     <meta property="og:site_name" content="Opportunity for Afghans">
     <meta property="og:image" content="{{asset('img/preview.jpg')}}">
+    <meta name="og:description" content="Opportunity for Afghans is a trustworthy source of educations, jobs, fellowships, conferences etc.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Find Your Dream Opportunities - Opportunities in Afghanistan">
+    <meta name="twitter:image" content="{{asset('img/preview.jpg')}}">
+    <meta name="twitter:description" content="Opportunity for Afghans is a trustworthy source of educations, jobs, fellowships, conferences etc.">
 @endsection
 
 @section('content')
@@ -16,7 +21,7 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6">
             <!-- hero headline -->
             <div class="hero-headline flex flex-col items-center justify-center pt-24 text-center">
-                <h1 class=" font-bold text-4xl">{{__('Browse latest opportunities')}}</h1>
+                <h1 class=" font-bold text-4xl">{{__('Find Your Dream Opportunities')}}</h1>
                 <p class=" font-base text-base text-gray-600">{{__('high quality opportunities shared by our community.')}}</p>
             </div>
 
@@ -26,8 +31,8 @@
                     <form onsubmit="sumbitSearch()" class="bg-white rounded flex shadow-sm items-center w-full p-3 shadow-sm border border-gray-200">
                         <button class="outline-none focus:outline-none"><svg class=" w-5 text-gray-600 h-5 cursor-pointer" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
                         <input type="search" name="query" id="query" placeholder="{{__('Search for Opportunities')}}" class="w-full border-none pl-4 focus:ring-0 text-sm  bg-transparent">
-                        <div class="select">
-                            <select id="category" name="search" class="text-sm outline-none border-none focus:outline-none focus:ring-0 bg-transparent">
+                        <div class="select w-1/2">
+                            <select id="category" name="search" class="text-sm w-full outline-none border-none focus:outline-none focus:ring-0 bg-transparent">
                                 <option value="" selected>{{__('All')}}</option>
                                 <option value="1">{{ __('Scholarship') }}</option>
                                 <option value="2">{{ __('Job') }}</option>
@@ -40,6 +45,11 @@
 
         </div>
     </section>
+
+    {{--
+     <section id="ads_placement" class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 mt-10 px-4 gap-5">
+    </section>
+     --}}
 
     <section id="categories" class="hidden md:flex justify-center px-24 py-16 gap-x-24 gap-y-8 text-gray-500">
         <a href="{{ route('opportunities') }}?category_id=1" class="flex flex-col items-center hover:text-blue-500">
@@ -59,36 +69,43 @@
 
     </section>
 
-    <section id="top_opportunities" class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:px-24 px-4 pt-16 md:pt-0">
+    <section id="top_opportunities" class="max-w-md sm:max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-12 px-4 pt-16 md:pt-0">
         @foreach($scholarships as $opportunity)
             <x-site.vertical-card :opportunity="$opportunity"/>
         @endforeach
     </section>
 
-    <section id="about_to_close_opportunities" class="sm:px-24 px-4 py-16 my-16 w-full bg-gray-50">
-        <h1 class="text-2xl uppercase font-bold pb-4 border-b border-gray-500 inline">Deadline Approach</h1>
-        <div class="grid grid-cols-1 md:grid-cols-3 mt-16 gap-5">
-            @foreach($deadlines as $opportunity)
-                <x-site.horizontal-card :opportunity="$opportunity" />
-            @endforeach
+    <section id="ads_placement_1" class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 my-16 px-4 gap-5">
+
+    </section>
+
+    <section id="about_to_close_opportunities" class="py-16 my-16 w-full bg-gray-50">
+        <div class="px-4 max-w-6xl mx-auto">
+            <h1 class="text-2xl uppercase font-bold pb-4 border-b border-gray-500 inline">{{__('Deadline Approaching')}}</h1>
+            <div class="grid grid-cols-1 md:grid-cols-3 mt-16 gap-5">
+                @foreach($deadlines as $opportunity)
+                    <x-site.horizontal-card :opportunity="$opportunity" />
+                @endforeach
+            </div>
         </div>
     </section>
 
-    <section id="ads_placement" class="grid grid-cols-1 md:grid-cols-2 bg-white px-24 gap-5">
-        <h1 class="text-xl"></h1>
-        <h1 class="text-xl"></h1>
+    <section id="ads_placement_2" class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 px-4 gap-5">
+
     </section>
 
-    <section id="latest_opportunities" class="sm:px-24 px-4 py-16 my-16 w-full bg-gray-50">
-        <h1 class="text-2xl uppercase font-bold pb-4 border-b border-gray-500 inline">Latest Addition</h1>
-        <div class="grid grid-cols-1 md:grid-cols-3 mt-16 gap-5">
-            @foreach($latests as $latest)
-                <x-site.horizontal-card :opportunity="$opportunity" />
-            @endforeach
+    <section id="latest_opportunities" class="py-16 my-16 w-full bg-gray-50">
+        <div class="px-4 max-w-6xl mx-auto">
+            <h1 class="text-2xl uppercase font-bold pb-4 border-b border-gray-500 inline">{{__('Latest Additions')}}</h1>
+            <div class="grid grid-cols-1 md:grid-cols-3 mt-16 gap-5">
+                @foreach($latests as $latest)
+                    <x-site.horizontal-card :opportunity="$opportunity" />
+                @endforeach
+            </div>
         </div>
     </section>
 
-    <section id="keep_connected" class="grid grid-cols-1 sm:grid-cols-3 px-12 sm:px-24 py-4 pb-16 bg-white gap-16">
+    <section id="keep_connected" class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 px-4 py-4 pb-16 bg-white gap-16">
         <div>
             <h1 class="text-2xl uppercase font-bold pb-4 border-b border-gray-500 inline">Subscribe!</h1>
             <p class="mt-10 mb-4">Get week's most popular opportunities.</p>
@@ -115,7 +132,7 @@
 
         <div>
             <h1 class="text-2xl uppercase font-bold pb-4 border-b border-gray-500 inline">{{__('Keep connected!')}}</h1>
-            <p class="mt-10 mb-4">{{__('Follow us on social medias.')}}</p>
+            <p class="mt-10 mb-4">{{__('Follow us on social media.')}}</p>
             <div class="flex gap-4">
                 <a href="https://www.facebook.com/opportunity4Af" target="_blank">
                     <img class="w-10" src="{{asset('img/facebook.png')}}" alt="Opportunity for Afghans - Facebook">

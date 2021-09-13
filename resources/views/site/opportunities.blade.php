@@ -1,14 +1,19 @@
 @extends('layouts.site.app')
 
 @section('head')
-    <title>Opp4af - Search for Opportunities</title>
-    <meta name="title" content="Opp4af - Search for Opportunities">
-    <meta name="description" content="Opp4af is about exploring latest opportunities containing scholarships, internships, jobs, workshops, fellowships, competitions, courses, online events and more.">
-    <meta property="og:type" content="page">
-    <meta property="og:title" content="Opp4af - Search for Opportunities">
+    <title>Search for Opportunities - Opportunity for Afghans</title>
+    <meta name="title" content="Search for Opportunities - Opportunity for Afghans">
+    <meta name="description" content="Explore latest opportunities for Afghanistan containing scholarships, internships, jobs, workshops, fellowships, competitions, courses, online events and more.">
+    <meta name="og:description" content="Explore latest opportunities for Afghanistan containing scholarships, internships, jobs, workshops, fellowships, competitions, courses, online events and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Search for Opportunities - Opportunity for Afghans">
     <meta property="og:url" content="{{route('opportunities')}}">
     <meta property="og:site_name" content="Opportunity for Afghans">
     <meta property="og:image" content="{{asset('img/preview.jpg')}}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Search for Opportunities - Opportunity for Afghans">
+    <meta name="twitter:image" content="{{asset('img/preview.jpg')}}">
+    <meta name="twitter:description" content="Explore latest opportunities in Afghanistan containing scholarships, internships, jobs, workshops, fellowships, competitions, courses, online events and more.">
 @endsection
 
 @section('css')
@@ -17,7 +22,7 @@
 
 @section('content')
 
-    <div class="grid sm:grid-cols-12 grid-cols-1 p-12">
+    <div class="max-w-6xl mx-auto grid sm:grid-cols-12 grid-cols-1 py-12 px-4">
         <div class="col-span-3 bg-gray-50 p-4">
             <h1 class="text-lg font-bold mb-4">{{__('Advanced Filters')}}</h1>
             <x-label for="category_id" :value="__('Category')" />
@@ -68,6 +73,13 @@
                 @if($opportunities->count())
                     @foreach($opportunities as $opportunity)
                         <x-site.horizontal-card :opportunity="$opportunity" />
+                        @if($loop->iteration == 1 || $loop->iteration == 5)
+                            {{--
+                                <section id="ads_placement" class="bg-black">
+
+                            </section>
+                            --}}
+                        @endif
                     @endforeach
                 @else
                     <p>{{__('No match found.')}}</p>

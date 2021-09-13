@@ -25,9 +25,9 @@ use App\Http\Controllers\admin\SubscriberController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/opportunities', [HomeController::class, 'opportunities'])->name('opportunities');
-Route::get('/opportunities/{opportunity:slug}', [HomeController::class, 'opportunity'])->name('opportunity');
-Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/policy', [HomeController::class, 'policy'])->name('policy');
+Route::get('/opportunity/{opportunity:slug}', [HomeController::class, 'opportunity'])->name('opportunity');
+Route::view('/about', 'site.about')->name('about');
+Route::view('/privacy-policy', 'site.policy' )->name('policy');
 Route::post('/subscriber', [SubscriberController::class, 'store'])->name('subscriber.store');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function() {

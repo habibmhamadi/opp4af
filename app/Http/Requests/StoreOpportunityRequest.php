@@ -34,7 +34,7 @@ class StoreOpportunityRequest extends FormRequest
             'reference' => 'nullable|string',
             'website' => 'nullable|url',
             'apply_link' => 'nullable|url',
-            'deadline' => 'required|date',
+            'deadline' => 'nullable|date|after:now',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:60',
             'description' => 'required|string',
         ];

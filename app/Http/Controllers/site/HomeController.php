@@ -18,14 +18,9 @@ class HomeController extends Controller
     {
         return view('site.home', [
             'scholarships' => Opportunity::latest_scholarships(),
-            'deadlines' => Opportunity::deadlines(),
-            'latests' => Opportunity::latests()
+            'deadlines' => Opportunity::deadlines(9),
+            'latests' => Opportunity::latests(9)
         ]);
-    }
-
-    public function about()
-    {
-        return view('site.about');
     }
 
     public function opportunity(Opportunity $opportunity)

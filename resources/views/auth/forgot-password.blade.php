@@ -1,8 +1,11 @@
 <x-guest-layout>
+    @section('title')
+        Forgot Password
+    @endsection
     <x-auth-card>
         <x-slot name="logo">
-            <a class="text-xl" href="/">
-                OPP4AF
+            <a class="text-xl" href="{{ route('home') }}">
+                Opportunity for Afghans
             </a>
         </x-slot>
 

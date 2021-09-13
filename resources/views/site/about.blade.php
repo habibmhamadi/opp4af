@@ -3,15 +3,17 @@
 @section('head')
     <title>About - Opportunity for Afghans</title>
     <meta name="title" content="About - Opportunity for Afghans">
-    <meta name="description" content="Opp4af is about exploring latest opportunities containing scholarships, internships, jobs, workshops, fellowships, competitions, courses, online events and more.">
-    <meta property="og:type" content="page">
+    <meta name="description" content="Opportunity for Afghans is a trustworthy source of educations, jobs, fellowships, conferences etc. Moreover, for the ease of use Opp4af is accessible both by a computer and as well as mobile phone.">
+    <meta property="og:type" content="website">
     <meta property="og:title" content="About - Opportunity for Afghans">
     <meta property="og:url" content="{{route('about')}}">
     <meta property="og:site_name" content="Opportunity for Afghans">
+    <meta name="og:description" content="Opportunity for Afghans is a trustworthy source of educations, jobs, fellowships, conferences etc. Moreover, for the ease of use Opp4af is accessible both by a computer and as well as mobile phone.">
     <meta property="og:image" content="{{asset('img/preview.jpg')}}">
-@endsection
-
-@section('css')
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="About - Opportunity for Afghans">
+    <meta name="twitter:image" content="{{asset('img/preview.jpg')}}">
+    <meta name="twitter:description" content="Opportunity for Afghans is a trustworthy source of educations, jobs, fellowships, conferences etc. Moreover, for the ease of use Opp4af is accessible both by a computer and as well as mobile phone.">
 @endsection
 
 @section('content')
@@ -20,12 +22,12 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6">
             <!-- hero headline -->
             <div class="hero-headline flex flex-col items-center justify-center py-24 text-center">
-                <h1 class=" font-bold text-4xl">{{__('About - Opportunity for Afghans')}}</h1>
+                <h1 class=" font-bold text-4xl">{{__('Opportunity for Afghans | About')}}</h1>
             </div>
         </div>
     </section>
 
-    <div class="py-10 px-10 sm:px-56">
+    <section id="about" class="py-10 max-w-3xl mx-auto px-4 md:px-0">
         <p>{{__('Opportunity for Afghans is a trustworthy source of educations, jobs, fellowships, conferences etc. Moreover, for the ease of use Opp4af is accessible both by a computer and as well as mobile phone. As Afghanistan is a developing country with limited resources and opportunities for its youth who does not only represent the majority of the country’s population but are those who should be invested in. By upskilling the young population, their potential can be used in the future for the development of the country. To tackle this challenge, we came up with the idea of developing a mobile application and as well as a website which informs Afghans from internal and external opportunities in an instantaneous way. Our team always strives to provide Afghans the most suitable and beneficial opportunities as rapidly as possible, and thereby fulfil our share of capacity building of the youth. ')}}</p>
 
         <h1 class="text-xl font-bold sm:text-center mt-12 mb-10">{{__('What we do?')}}</h1>
@@ -50,6 +52,6 @@
                 <img class="w-10" src="{{asset('img/twitter.png')}}" alt="Opportunity for Afghans - Twitter">
             </a>
         </div>
-    </div>
+    </section>
 
 @endsection

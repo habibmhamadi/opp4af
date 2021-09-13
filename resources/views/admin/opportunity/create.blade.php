@@ -1,4 +1,7 @@
 <x-app-layout>
+    @section('title')
+        Opportunities - Create
+    @endsection
     @section('css')
         <link rel="stylesheet" href="{{ asset('css/slim-select.css') }}">
         <link rel="stylesheet" href="{{ asset('css/sun-editor.css') }}">
@@ -94,8 +97,8 @@
                                 @error('website') <div class="my-1 text-red-500">{{ $message }}</div> @enderror
                             </div>
                             <div>
-                                <x-label for="deadline" :value="__('Deadline')" :required="true"/>
-                                <x-input id="deadline" class="block mt-1 w-full" type="date" name="deadline" :value="old('deadline')" required autofocus />
+                                <x-label for="deadline" :value="__('Deadline')"/>
+                                <x-input id="deadline" class="block mt-1 w-full" type="date" name="deadline" autofocus />
                                 @error('deadline') <div class="my-1 text-red-500">{{ $message }}</div> @enderror
                             </div>
                             <div>

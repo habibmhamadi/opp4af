@@ -1,4 +1,7 @@
 <x-app-layout>
+    @section('title')
+        Opportunities - View
+    @endsection
     @section('css')
         <link rel="stylesheet" href="{{ asset('css/slim-select.css') }}">
     @endsection
@@ -75,7 +78,9 @@
                             </div>
                             <div>
                                 <x-label for="deadline" :value="__('Deadline')" :required="true"/>
-                                <x-input disabled id="deadline" class="block mt-1 w-full" type="date" name="deadline" :value="$opportunity->deadline->toDateString()" required autofocus />
+                                @if($opportunity->deadline)
+                                    <x-input disabled id="deadline" class="block mt-1 w-full" type="date" name="deadline" :value="$opportunity->deadline->toDateString()" required autofocus />
+                                @endif
                             </div>
                             <div>
                                 <x-label for="image" :value="__('Image')"  />

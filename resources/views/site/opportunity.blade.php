@@ -1,22 +1,27 @@
 @extends('layouts.site.app')
 
 @section('head')
-    <title>Opp4af - {{$opportunity->name}}</title>
-    <meta name="title" content="Opp4af - {{$opportunity->name}}">
-    <meta name="description" content="Opp4af is about exploring latest opportunities containing scholarships, internships, jobs, workshops, fellowships, competitions, courses, online events and more.">
+    <title>{{$opportunity->name}} - Opportunity for Afghans</title>
+    <meta name="title" content="{{$opportunity->name}} - Opportunity for Afghans">
+    <meta name="description" content="Explore latest opportunities in Afghanistan containing scholarships, internships, jobs, workshops, fellowships, competitions, courses, online events and more.">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="OPP4AF - {{$opportunity->name}}">
-    <meta property="og:url" content="https://www.opp4af.com/{{$opportunity->slug}}">
+    <meta property="og:title" content="{{$opportunity->name}} - Opportunity for Afghans">
+    <meta property="og:url" content="{{ route('opportunity', $opportunity->slug)}}">
     <meta property="og:site_name" content="Opportunity for Afghans">
     <meta property="og:image" content="{{$opportunity->getImageUrl()}}">
+    <meta name="og:description" content="Explore latest opportunities in Afghanistan containing scholarships, internships, jobs, workshops, fellowships, competitions, courses, online events and more.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{$opportunity->name}} - Opportunity for Afghans">
+    <meta name="twitter:image" content="{{$opportunity->getImageUrl()}}">
+    <meta name="twitter:description" content="Explore latest opportunities in Afghanistan containing scholarships, internships, jobs, workshops, fellowships, competitions, courses, online events and more.">
 
 @endsection
 
 @section('content')
-    <section id="article_title" class="w-full py-16" style="background-image: url('{{ asset('img/cover.png') }}');">
-        <div class="bg-white p-5 shadow lg:mx-56 mx-12 rounded">
+    <section id="article_title" class="w-full px-1 py-16" style="background-image: url('{{ asset('img/cover.png') }}');">
+        <div class="bg-white p-5 mx-1 max-w-xl lg:max-w-5xl mx-auto shadow rounded">
             <article class="flex flex-col sm:flex-row gap-4">
-                <img class="w-28 h-28 rounded bg-cover" src="{{$opportunity->getImageUrl()}}" alt="">
+                <img class="w-28 h-28 rounded object-cover" src="{{$opportunity->getImageUrl()}}" alt="">
                 <div class="flex flex-col justify-around gap-1.5">
                     <h1 class="text-2xl"> {{ $opportunity->name }}</h1>
                         <div class="flex items-center text-gray-400">
@@ -35,11 +40,14 @@
             </article>
         </div>
     </section>
-
-    <section id="content" class="w-full bg-white lg:px-24 px-4 py-16">
+   {{--
+    <section id="ads_placement" class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 bg-black my-16 px-4 gap-5">
+    </section>
+    --}}
+    <section id="content" class="max-w-6xl mx-auto bg-white px-4 py-16">
         <h1 class="text-2xl uppercase font-bold pb-4 border-b border-gray-500 inline">Opportunity Details</h1>
-        <div class="grid grid-cols-1 md:grid-cols-3 mt-16">
-            <div class="sm:col-span-2 grid grid-cols-1 px-4 gap-y-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 mt-16 gap-x-8">
+            <div class="sm:col-span-2 grid grid-cols-1 gap-y-8">
                 <div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-y-5">
                         <div class="flex items-center text-gray-400">
@@ -76,6 +84,11 @@
                         </div>
                     </div>
                     <br><br>
+                    {{--
+                    <div id="ads_placement" class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 mt-4 mb-8 px-4 gap-5">
+
+                    </div>
+                    --}}
                     <div>
                         {!! $opportunity->description !!}
                     </div>

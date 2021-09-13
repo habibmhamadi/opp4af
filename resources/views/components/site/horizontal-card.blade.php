@@ -1,6 +1,6 @@
 <article class="bg-white rounded shadow flex flex-col p-3 gap-y-5">
     <div class="flex gap-x-4 items-center">
-        <img class="w-16 h-16 bg-cover rounded" loading="lazy" src="{{$opportunity->getImageUrl()}}" alt="{{$opportunity->slug}}">
+        <img class="w-16 h-16 rounded-sm object-cover" loading="lazy" src="{{$opportunity->getImageUrl()}}" alt="{{$opportunity->slug}}">
         <a href="{{ route('opportunity', $opportunity->slug)}}" class="hover:text-blue-500">
             <h2 class="overflow-hidden overflow-ellipsis text-lg" style="-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;">{{$opportunity->name}}</h2>
         </a>
@@ -16,6 +16,6 @@
             @endif
             <h3 class="text-sm">{{ $opportunity->category->name }}</h3>
         </div>
-        <h3 class="text-sm">{{ $opportunity->deadline->diffForHumans() }}</h3>
+        <h3 class="text-sm">{{ $opportunity->getDeadline() }}</h3>
     </div>
 </article>

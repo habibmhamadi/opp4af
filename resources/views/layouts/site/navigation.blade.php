@@ -4,7 +4,7 @@
             <div class="flex justify-start flex-1">
                 <a href="{{ route('home') }}" class="flex items-center">
                     <img src="{{asset('icons/opp4af-logo.png')}}" class="w-8" alt="Opp4af - Opportunity for Afghans">
-                    <h1 class="ml-2 font-semibold text-xl">Opp4af</h1>
+                    <h1 class="ml-2 font-semibold text-xl">Opportunity for Afghans</h1>
                 </a>
             </div>
             <div class="-mr-2 -my-2 md:hidden">
@@ -72,7 +72,7 @@
                 <div class="flex items-center justify-between">
                     <a href="{{ route('home') }}" class="flex items-center">
                         <img src="{{asset('icons/opp4af-logo.png')}}" class="w-8" alt="Opp4af - Opportunity for Afghans">
-                        <h1 class="ml-2 font-semibold text-xl">Opp4af</h1>
+                        <h1 class="ml-2 font-semibold text-xl">Opportunity for Afghans</h1>
                     </a>
                     <div class="-mr-2">
                         <button @click="open = false" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -94,6 +94,11 @@
                             <li>
                                 <a href="{{route('about')}}" class="-m-3 p-3 flex hover:bg-blue-50 items-center rounded-md">
                                     {{ __('About') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('policy')}}" class="-m-3 p-3 flex hover:bg-blue-50 items-center rounded-md">
+                                    {{ __('Privacy Policy') }}
                                 </a>
                             </li>
                         </ul>
