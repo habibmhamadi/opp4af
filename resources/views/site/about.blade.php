@@ -9,10 +9,10 @@
     <meta property="og:url" content="{{route('about')}}">
     <meta property="og:site_name" content="Opportunity for Afghans">
     <meta name="og:description" content="Opportunity for Afghans is a trustworthy source of educations, jobs, fellowships, conferences etc. Moreover, for the ease of use Opp4af is accessible both by a computer and as well as mobile phone.">
-    <meta property="og:image" content="{{asset('img/preview.jpg')}}">
+    <meta property="og:image" content="{{asset('img/preview.webp')}}">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="About - Opportunity for Afghans">
-    <meta name="twitter:image" content="{{asset('img/preview.jpg')}}">
+    <meta name="twitter:image" content="{{asset('img/preview.webp')}}">
     <meta name="twitter:description" content="Opportunity for Afghans is a trustworthy source of educations, jobs, fellowships, conferences etc. Moreover, for the ease of use Opp4af is accessible both by a computer and as well as mobile phone.">
 @endsection
 

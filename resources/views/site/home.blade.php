@@ -8,11 +8,11 @@
     <meta property="og:title" content="Find Your Dream Opportunities - Opportunities in Afghanistan">
     <meta property="og:url" content="{{route('home')}}">
     <meta property="og:site_name" content="Opportunity for Afghans">
-    <meta property="og:image" content="{{asset('img/preview.jpg')}}">
+    <meta property="og:image" content="{{asset('img/preview.webp')}}">
     <meta name="og:description" content="Opportunity for Afghans is a trustworthy source of educations, jobs, fellowships, conferences etc.">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Find Your Dream Opportunities - Opportunities in Afghanistan">
-    <meta name="twitter:image" content="{{asset('img/preview.jpg')}}">
+    <meta name="twitter:image" content="{{asset('img/preview.webp')}}">
     <meta name="twitter:description" content="Opportunity for Afghans is a trustworthy source of educations, jobs, fellowships, conferences etc.">
 @endsection
 
