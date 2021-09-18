@@ -22,9 +22,9 @@ class OpportunityFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->text(50),
+            'name' => $this->faker->text(100),
             'category_id' => rand(1, 3),
-            'organization_id' => rand(1, 5),
+            'organization' => $this->faker->text(20),
             'fund_id' => rand(2, 5),
             'deadline' => now()->addDays(rand(1, 60)),
             'description' => $this->faker->text(500),

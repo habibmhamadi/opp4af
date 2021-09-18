@@ -29,10 +29,8 @@
                                 </select>
                             </div>
                             <div>
-                                <x-label for="organization_id" :value="__('Organization')" :required="true" />
-                                <select disabled name="organization_id" required class="my-2 w-full border-none text-gray-600 bg-gray-50 rounded px-3 py-2 outline-none">
-                                    <option selected>{{$opportunity->organization->name}}</option>
-                                </select>
+                                <x-label for="organization" :value="__('Organization')"  />
+                                <x-input disabled id="organization" class="block mt-1 w-full" type="text" name="organization" :value="$opportunity->organization" autofocus />
                             </div>
                             <div>
                                 <x-label for="location_ids" :value="__('Location')" :required="true" />
@@ -65,18 +63,6 @@
                                 </select>
                             </div>
                             <div>
-                                <x-label for="reference" :value="__('Reference')" />
-                                <x-input disabled id="reference" class="block mt-1 w-full" type="text" name="reference" :value="$opportunity->reference"  autofocus />
-                            </div>
-                            <div>
-                                <x-label for="apply_link" :value="__('Apply Link')" />
-                                <x-input disabled id="apply_link" class="block mt-1 w-full" type="url" name="apply_link" :value="$opportunity->apply_link"  autofocus />
-                            </div>
-                            <div>
-                                <x-label for="website" :value="__('Website')" />
-                                <x-input disabled id="website" class="block mt-1 w-full" type="url" name="website" :value="$opportunity->website"  autofocus />
-                            </div>
-                            <div>
                                 <x-label for="deadline" :value="__('Deadline')" :required="true"/>
                                 @if($opportunity->deadline)
                                     <x-input disabled id="deadline" class="block mt-1 w-full" type="date" name="deadline" :value="$opportunity->deadline->toDateString()" required autofocus />
@@ -84,6 +70,7 @@
                             </div>
                             <div>
                                 <x-label for="image" :value="__('Image')"  />
+                                <img src="{{$opportunity->getImageUrl()}}" class="w-16 object-cover" alt="">
                             </div>
                         </div>
                         <div class="mt-4">

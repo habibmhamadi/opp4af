@@ -19,7 +19,7 @@ class HomeController extends Controller
         return view('site.home', [
             'scholarships' => Opportunity::latest_scholarships(),
             'deadlines' => Opportunity::deadlines(9),
-            'latests' => Opportunity::latests(9)
+            'latest' => Opportunity::latests(9)
         ]);
     }
 
@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         return view('site.opportunity')->with([
             'opportunity' => $opportunity,
-            'related_opps' => Opportunity::related_opps($opportunity->category->id, 4)
+            'related_opps' => Opportunity::related_opps($opportunity, 6)
         ]);
     }
 

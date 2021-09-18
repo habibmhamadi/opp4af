@@ -311,15 +311,6 @@ class DatabaseSeeder extends Seeder
         'Partially Funded'
     ];
 
-    private $organizations = [
-        'NSIA',
-        'DACCAR',
-        'BARAK',
-        'JSSP',
-        'Netlinks',
-        'Moore'
-    ];
-
     private $educations = [
         'Unspecified',
         'High School',
@@ -345,16 +336,6 @@ class DatabaseSeeder extends Seeder
         'Security/Safety',
         'Management',
         'Communication'
-    ];
-
-    private $opportunity = [
-        'name' => 'Software Developer',
-        'slug' => 'software-developer-1',
-        'category_id' => 5,
-        'organization_id' => 1,
-        'fund_id' => 2,
-        'deadline' => '2021-08-12',
-        'description' => 'This is Description'
     ];
 
     public function run()
@@ -393,16 +374,12 @@ class DatabaseSeeder extends Seeder
             Area::create(['name' => $area]);
         }
 
-//        foreach ($this->organizations as $organization)
-//        {
-//            Organization::create(['name' => $organization]);
-//        }
-//
-//        foreach (Opportunity::factory()->count(20)->create() as $opportunity)
-//        {
-//            $opportunity->education()->attach([4, 5]);
-//            $opportunity->locations()->attach([1]);
-//            $opportunity->areas()->attach([2,6]);
-//        }
+
+       // foreach (Opportunity::factory()->count(20)->create() as $opportunity)
+       // {
+         //   $opportunity->education()->attach([4, 5]);
+          //  $opportunity->locations()->attach([1]);
+          //  $opportunity->areas()->attach([2,6]);
+       // }
     }
 }

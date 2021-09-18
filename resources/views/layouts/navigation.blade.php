@@ -57,9 +57,6 @@
                         <x-dropdown-link :href="route('admin.education.index')">
                             {{ __('Education') }}
                         </x-dropdown-link>
-                        <x-dropdown-link :href="route('admin.organization.index')">
-                            {{ __('Organization') }}
-                        </x-dropdown-link>
                         <x-dropdown-link :href="route('admin.fund.index')">
                             {{ __('Funds') }}
                         </x-dropdown-link>
@@ -128,9 +125,6 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('admin.location.index')" :active="request()->routeIs('admin.location.*')">
                 {{ __('Locations') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('admin.organization.index')" :active="request()->routeIs('admin.organization.*')">
-                {{ __('Organizations') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('admin.fund.index')" :active="request()->routeIs('admin.fund.*')">
                 {{ __('Funds') }}

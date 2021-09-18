@@ -70,8 +70,8 @@
     </section>
 
     <section id="top_opportunities" class="max-w-md sm:max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-12 px-4 pt-16 md:pt-0">
-        @foreach($scholarships as $opportunity)
-            <x-site.vertical-card :opportunity="$opportunity"/>
+        @foreach($scholarships as $scholarship)
+            <x-site.vertical-card :opportunity="$scholarship"/>
         @endforeach
     </section>
 
@@ -83,8 +83,8 @@
         <div class="px-4 max-w-6xl mx-auto">
             <h1 class="text-2xl uppercase font-bold pb-4 border-b border-gray-500 inline">{{__('Deadline Approaching')}}</h1>
             <div class="grid grid-cols-1 md:grid-cols-3 mt-16 gap-5">
-                @foreach($deadlines as $opportunity)
-                    <x-site.horizontal-card :opportunity="$opportunity" />
+                @foreach($deadlines as $deadline)
+                    <x-site.horizontal-card :opportunity="$deadline" />
                 @endforeach
             </div>
         </div>
@@ -98,8 +98,8 @@
         <div class="px-4 max-w-6xl mx-auto">
             <h1 class="text-2xl uppercase font-bold pb-4 border-b border-gray-500 inline">{{__('Latest Additions')}}</h1>
             <div class="grid grid-cols-1 md:grid-cols-3 mt-16 gap-5">
-                @foreach($latests as $latest)
-                    <x-site.horizontal-card :opportunity="$opportunity" />
+                @foreach($latest as $lat)
+                    <x-site.horizontal-card :opportunity="$lat" />
                 @endforeach
             </div>
         </div>
@@ -126,7 +126,7 @@
             <h1 class="text-2xl uppercase font-bold pb-4 border-b border-gray-500 inline">{{__('Connect With Us!')}}</h1>
             <p class="mt-10 mb-4">{{__('Download our Android App.')}}</p>
             <a href="https://play.google.com/store/apps/details?id=com.ofa">
-                <img class="rounded w-3/4" loading="lazy" src="{{asset('img/app.png')}}" alt="Opportunity for Afghans - Android App">
+                <img loading="lazy" class="rounded w-3/4" loading="lazy" src="{{asset('img/app.png')}}" alt="Opportunity for Afghans - Android App">
             </a>
         </div>
 
@@ -135,16 +135,16 @@
             <p class="mt-10 mb-4">{{__('Follow us on social media.')}}</p>
             <div class="flex gap-4">
                 <a href="https://www.facebook.com/opportunity4Af" target="_blank">
-                    <img class="w-10" src="{{asset('img/facebook.png')}}" alt="Opportunity for Afghans - Facebook">
+                    <img loading="lazy" class="w-10" src="{{asset('img/facebook.png')}}" alt="Opportunity for Afghans - Facebook">
                 </a>
                 <a href="https://www.instagram.com/opportunity4af" target="_blank">
-                    <img class="w-10" src="{{asset('img/instagram.png')}}" alt="Opportunity for Afghans - Instagram">
+                    <img loading="lazy" class="w-10" src="{{asset('img/instagram.png')}}" alt="Opportunity for Afghans - Instagram">
                 </a>
                 <a href="https://t.me/Opportunity4Af" target="_blank">
-                    <img class="w-10" src="{{asset('img/telegram.png')}}" alt="Opportunity for Afghans - Telegram">
+                    <img loading="lazy" class="w-10" src="{{asset('img/telegram.png')}}" alt="Opportunity for Afghans - Telegram">
                 </a>
                 <a href="https://twitter.com/opportunity4af" target="_blank">
-                    <img class="w-10" src="{{asset('img/twitter.png')}}" alt="Opportunity for Afghans - Twitter">
+                    <img loading="lazy" class="w-10" src="{{asset('img/twitter.png')}}" alt="Opportunity for Afghans - Twitter">
                 </a>
             </div>
         </div>

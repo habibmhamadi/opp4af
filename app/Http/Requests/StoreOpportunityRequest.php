@@ -26,16 +26,13 @@ class StoreOpportunityRequest extends FormRequest
         return [
             'name' => 'string|required',
             'category_id' => 'required|numeric',
-            'organization_id' => 'required|numeric',
+            'organization' => 'nullable|string',
             'fund_id' => 'required|numeric',
             'area_ids' => 'required',
             'location_ids' => 'required',
             'education_ids' => 'required',
-            'reference' => 'nullable|string',
-            'website' => 'nullable|url',
-            'apply_link' => 'nullable|url',
             'deadline' => 'nullable|date|after:now',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:60',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:60',
             'description' => 'required|string',
         ];
     }

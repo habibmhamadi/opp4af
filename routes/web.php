@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\admin\OrganizationController;
 use App\Http\Controllers\admin\OpportunityController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\LocationController;
@@ -38,7 +37,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
         'category' => CategoryController::class,
         'location' => LocationController::class,
         'education' => EducationController::class,
-        'organization' => OrganizationController::class,
         'fund' => FundController::class,
         'area' => AreaController::class,
         'user' => UserController::class,

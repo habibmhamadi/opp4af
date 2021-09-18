@@ -40,16 +40,16 @@
         <h1 class="text-2xl font-bold uppercase sm:text-center mt-16 mb-10">{{__('Contact us')}}</h1>
         <div class="flex gap-4 justify-center">
             <a href="https://www.facebook.com/opportunity4Af" target="_blank">
-                <img class="w-10" src="{{asset('img/facebook.png')}}" alt="Opportunity for Afghans - Facebook">
+                <img loading="lazy" class="w-10" src="{{asset('img/facebook.png')}}" alt="Opportunity for Afghans - Facebook">
             </a>
             <a href="https://www.instagram.com/opportunity4af" target="_blank">
-                <img class="w-10" src="{{asset('img/instagram.png')}}" alt="Opportunity for Afghans - Instagram">
+                <img loading="lazy" class="w-10" src="{{asset('img/instagram.png')}}" alt="Opportunity for Afghans - Instagram">
             </a>
             <a href="https://t.me/Opportunity4Af" target="_blank">
-                <img class="w-10" src="{{asset('img/telegram.png')}}" alt="Opportunity for Afghans - Telegram">
+                <img loading="lazy" class="w-10" src="{{asset('img/telegram.png')}}" alt="Opportunity for Afghans - Telegram">
             </a>
             <a href="https://twitter.com/opportunity4af" target="_blank">
-                <img class="w-10" src="{{asset('img/twitter.png')}}" alt="Opportunity for Afghans - Twitter">
+                <img loading="lazy" class="w-10" src="{{asset('img/twitter.png')}}" alt="Opportunity for Afghans - Twitter">
             </a>
         </div>
     </section>

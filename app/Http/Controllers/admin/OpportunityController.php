@@ -120,10 +120,12 @@ class OpportunityController extends Controller
 
         if($allData)
         {
-            $datas['organizations'] = DB::table('organizations')->get(['id', 'name']);
+            $datas['organizations'] = DB::table('opportunities')->select('organization')
+                ->distinct()->get()->toArray();
             $datas['funds'] = DB::table('funds')->get(['id', 'name']);
             $datas['areas'] = DB::table('areas')->get(['id', 'name']);
         }
+//        dd($datas['organizations']);
         return $datas;
     }
 

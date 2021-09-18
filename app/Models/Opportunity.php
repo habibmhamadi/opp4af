@@ -16,11 +16,8 @@ class Opportunity extends Model
         'user_id',
         'category_id',
         'fund_id',
-        'organization_id',
-        'website',
+        'organization',
         'image',
-        'apply_link',
-        'reference',
         'deadline',
         'description',
         'published'
@@ -64,11 +61,6 @@ class Opportunity extends Model
     public function fund()
     {
         return $this->belongsTo(Fund::class);
-    }
-
-    public function organization()
-    {
-        return $this->belongsTo(Organization::class);
     }
 
     public function locations()
@@ -119,11 +111,12 @@ class Opportunity extends Model
             ->latest()->take($limit)->get();
     }
 
-    public static function related_opps($category_id, $limit = 4)
+    public static function related_opps($opportunity, $limit = 6)
     {
         return Opportunity::with('category')
+            ->where('id', '!=', $opportunity->id)
             ->where('published', true)
-            ->where('category_id', $category_id)
+            ->where('category_id', $opportunity->category_id)
             ->where(function ($w){
                 $w->where('deadline', '>', now())->orWhere('deadline');
             })->latest()->take($limit)->get();

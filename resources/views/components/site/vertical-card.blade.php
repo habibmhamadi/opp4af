@@ -7,7 +7,7 @@
             <p class="text-sm">{{ $opportunity->category->name}}</p>
         </div>
         <a href="{{ route('opportunity', $opportunity->slug)}}" class="text-xl hover:text-blue-500">
-            <h1>{{ $opportunity->name }}</h1>
+            <h1 class="overflow-hidden overflow-ellipsis" style="-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;">{{ $opportunity->name }}</h1>
         </a>
         <div class="flex gap-x-2 text-gray-500 text-sm font-semibold">
             <h2>

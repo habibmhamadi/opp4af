@@ -35,14 +35,14 @@
                                 @error('category_id') <div class="my-1 text-red-500">{{ $message }}</div> @enderror
                             </div>
                             <div>
-                                <x-label for="organization_id" :value="__('Organization')" :required="true" />
-                                <select name="organization_id" required class="my-2 w-full border-none text-gray-600 bg-gray-50 rounded px-3 py-2 outline-none">
-                                    <option selected></option>
-                                    @foreach($organizations as $organization)
-                                        <option {{ ($organization->id == old('organization_id') ?? 0) ? 'selected' : '' }} value="{{$organization->id}}" class="py-1">{{ $organization->name }}</option>
+                                <x-label for="organization" :value="__('Organization')"  />
+                                <x-input id="organization" list="organizations" class="block mt-1 w-full" type="text" name="organization" :value="old('organization')" autofocus />
+                                @error('organization') <div class="my-1 text-red-500">{{ $message }}</div> @enderror
+                                <datalist id="organizations">
+                                    @foreach($organizations as $org)
+                                        <option value="{{$org->organization}}"/>
                                     @endforeach
-                                </select>
-                                @error('organization_id') <div class="my-1 text-red-500">{{ $message }}</div> @enderror
+                                </datalist>
                             </div>
                             <div>
                                 <x-label for="location_ids" :value="__('Location')" :required="true" />
@@ -80,21 +80,6 @@
                                     @endforeach
                                 </select>
                                 @error('fund_id') <div class="my-1 text-red-500">{{ $message }}</div> @enderror
-                            </div>
-                            <div>
-                                <x-label for="reference" :value="__('Reference')" />
-                                <x-input id="reference" class="block mt-1 w-full" type="text" name="reference" :value="old('reference')"  autofocus />
-                                @error('reference') <div class="my-1 text-red-500">{{ $message }}</div> @enderror
-                            </div>
-                            <div>
-                                <x-label for="apply_link" :value="__('Apply Link')" />
-                                <x-input id="apply_link" class="block mt-1 w-full" type="url" name="apply_link" :value="old('apply_link')"  autofocus />
-                                @error('apply_link') <div class="my-1 text-red-500">{{ $message }}</div> @enderror
-                            </div>
-                            <div>
-                                <x-label for="website" :value="__('Website')" />
-                                <x-input id="website" class="block mt-1 w-full" type="url" name="website" :value="old('website')"  autofocus />
-                                @error('website') <div class="my-1 text-red-500">{{ $message }}</div> @enderror
                             </div>
                             <div>
                                 <x-label for="deadline" :value="__('Deadline')"/>
