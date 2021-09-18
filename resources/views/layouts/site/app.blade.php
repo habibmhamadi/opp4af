@@ -16,7 +16,22 @@
 
 </head>
 <body class="font-sans antialiased bg-white">
-    @include('layouts.site.navigation')
+   @if(config('app.analytics_id'))
+       @once
+           <!-- Global site tag (gtag.js) - Google Analytics -->
+           <script async src="https://www.googletagmanager.com/gtag/js?id={{config('app.analytics_id')}}"></script>
+           <script>
+               window.dataLayer = window.dataLayer || [];
+               function gtag(){dataLayer.push(arguments);}
+               gtag('js', new Date());
+
+               gtag('config', '{{config('app.analytics_id')}}', {
+                   cookie_flags: 'SameSite=None;Secure',
+               });
+           </script>
+       @endonce
+   @endif
+   @include('layouts.site.navigation')
 
 <main>
   @yield('content')
