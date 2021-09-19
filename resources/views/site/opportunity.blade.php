@@ -17,6 +17,32 @@
 
 @endsection
 
+@section('css')
+<style>
+    .desc a {
+        color: #3B82F6;
+    }
+    .desc h1 {
+        font-size: 2em;
+    }
+    .desc h2 {
+        font-size: 1.5em;
+    }
+    .desc h3 {
+        font-size: 1.17em;
+    }
+    .desc h4 {
+        font-size: 1em;
+    }
+    .desc h5 {
+        font-size: 0.83em;
+    }
+    .desc h6 {
+        font-size: 0.75em;
+    }
+</style>
+@endsection
+
 @section('content')
     <section id="article_title" class="w-full px-1 py-16" style="background-image: url('{{ asset('img/cover.png') }}');">
         <div class="bg-white p-5 mx-1 max-w-xl lg:max-w-5xl mx-auto shadow rounded">
@@ -96,7 +122,7 @@
 
                     </div>
                     --}}
-                    <div>
+                    <div class="desc">
                         {!! $opportunity->description !!}
                     </div>
                 </div>
