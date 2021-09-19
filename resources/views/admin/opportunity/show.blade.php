@@ -4,6 +4,7 @@
     @endsection
     @section('css')
         <link rel="stylesheet" href="{{ asset('css/slim-select.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/desc.css') }}">
     @endsection
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -75,7 +76,7 @@
                         </div>
                         <div class="mt-4">
                             <x-label for="description" :value="__('Description')" :required="true" />
-                            <div class="w-full mt-4 mb-2">{!! $opportunity->description !!}</div>
+                            <div class="w-full mt-4 mb-2 desc">{!! $opportunity->description !!}</div>
                         </div>
                         @can('admin')
                             <x-button x-bind:disabled="!active" class="mt-3 {{$opportunity->published ? 'bg-red-500' : 'bg-green-500'}}" >

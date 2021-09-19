@@ -18,29 +18,7 @@
 @endsection
 
 @section('css')
-<style>
-    .desc a {
-        color: #3B82F6;
-    }
-    .desc h1 {
-        font-size: 2em;
-    }
-    .desc h2 {
-        font-size: 1.5em;
-    }
-    .desc h3 {
-        font-size: 1.17em;
-    }
-    .desc h4 {
-        font-size: 1em;
-    }
-    .desc h5 {
-        font-size: 0.83em;
-    }
-    .desc h6 {
-        font-size: 0.75em;
-    }
-</style>
+    <link rel="stylesheet" href="{{ asset('css/desc.css') }}">
 @endsection
 
 @section('content')
