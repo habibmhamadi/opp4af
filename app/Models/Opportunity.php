@@ -41,7 +41,7 @@ class Opportunity extends Model
         });
         Opportunity::updating(function ($opportunity) {
             $opportunity->slug = Str::slug($opportunity->name);
-            if(Opportunity::where('slug', $opportunity->slug))
+            if(Opportunity::where('slug', $opportunity->slug)->where('id', '!=', $opportunity->id)->first())
             {
                 $opportunity->slug = $opportunity->slug.'-'.$opportunity->id;
             }
