@@ -9,11 +9,11 @@
     <meta property="og:url" content="{{ route('opportunity', $opportunity->slug)}}">
     <meta property="og:site_name" content="Opportunity for Afghans">
     <meta property="og:image" content="{{$opportunity->getImageUrl()}}">
-    <meta name="og:description" content="Explore latest opportunities in Afghanistan containing scholarships, internships, jobs, workshops, fellowships, competitions, courses, online events and more.">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{{$opportunity->name}} - Opportunity for Afghans">
-    <meta name="twitter:image" content="{{$opportunity->getImageUrl()}}">
-    <meta name="twitter:description" content="Explore latest opportunities in Afghanistan containing scholarships, internships, jobs, workshops, fellowships, competitions, courses, online events and more.">
+    <meta property="og:description" content="Explore latest opportunities in Afghanistan containing scholarships, internships, jobs, workshops, fellowships, competitions, courses, online events and more.">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="{{$opportunity->name}} - Opportunity for Afghans">
+    <meta property="twitter:image" content="{{$opportunity->getImageUrl()}}">
+    <meta property="twitter:description" content="Explore latest opportunities in Afghanistan containing scholarships, internships, jobs, workshops, fellowships, competitions, courses, online events and more.">
 
 @endsection
 
