@@ -10,10 +10,10 @@
     <meta property="og:site_name" content="Opportunity for Afghans">
     <meta property="og:image" content="{{asset('img/preview.jpg')}}">
     <meta property="og:description" content="Opportunity for Afghans is a trustworthy source of educations, jobs, fellowships, conferences etc.">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Find Your Dream Opportunities - Opportunities in Afghanistan">
-    <meta property="twitter:image" content="{{asset('img/preview.jpg')}}">
-    <meta property="twitter:description" content="Opportunity for Afghans is a trustworthy source of educations, jobs, fellowships, conferences etc.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Find Your Dream Opportunities - Opportunities in Afghanistan">
+    <meta name="twitter:image" content="{{asset('img/preview.jpg')}}">
+    <meta name="twitter:description" content="Opportunity for Afghans is a trustworthy source of educations, jobs, fellowships, conferences etc.">
 @endsection
 
 @section('content')

@@ -10,10 +10,10 @@
     <meta property="og:site_name" content="Opportunity for Afghans">
     <meta property="og:description" content="Opportunity for Afghans is a trustworthy source of educations, jobs, fellowships, conferences etc. Moreover, for the ease of use Opp4af is accessible both by a computer and as well as mobile phone.">
     <meta property="og:image" content="{{asset('img/preview.jpg')}}">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="About - Opportunity for Afghans">
-    <meta property="twitter:image" content="{{asset('img/preview.jpg')}}">
-    <meta property="twitter:description" content="Opportunity for Afghans is a trustworthy source of educations, jobs, fellowships, conferences etc. Moreover, for the ease of use Opp4af is accessible both by a computer and as well as mobile phone.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About - Opportunity for Afghans">
+    <meta name="twitter:image" content="{{asset('img/preview.jpg')}}">
+    <meta name="twitter:description" content="Opportunity for Afghans is a trustworthy source of educations, jobs, fellowships, conferences etc. Moreover, for the ease of use Opp4af is accessible both by a computer and as well as mobile phone.">
 @endsection
 
 @section('content')

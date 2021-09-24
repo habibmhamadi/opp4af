@@ -10,10 +10,10 @@
     <meta property="og:url" content="{{route('opportunities')}}">
     <meta property="og:site_name" content="Opportunity for Afghans">
     <meta property="og:image" content="{{asset('img/preview.jpg')}}">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Search for Opportunities - Opportunity for Afghans">
-    <meta property="twitter:image" content="{{asset('img/preview.jpg')}}">
-    <meta property="twitter:description" content="Explore latest opportunities in Afghanistan containing scholarships, internships, jobs, workshops, fellowships, competitions, courses, online events and more.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Search for Opportunities - Opportunity for Afghans">
+    <meta name="twitter:image" content="{{asset('img/preview.jpg')}}">
+    <meta name="twitter:description" content="Explore latest opportunities in Afghanistan containing scholarships, internships, jobs, workshops, fellowships, competitions, courses, online events and more.">
 @endsection
 
 @section('css')
