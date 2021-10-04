@@ -13,7 +13,6 @@
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @yield('css')
-    <script data-ad-client="ca-pub-4301168084246613" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 </head>
 <body class="font-sans antialiased bg-white">
