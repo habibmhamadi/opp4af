@@ -14,6 +14,8 @@
     <meta name="twitter:title" content="Find Your Dream Opportunities - Opportunities in Afghanistan">
     <meta name="twitter:image" content="{{asset('img/preview.jpg')}}">
     <meta name="twitter:description" content="Opportunity for Afghans is a trustworthy source of educations, jobs, fellowships, conferences etc.">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4301168084246613"
+     crossorigin="anonymous"></script>
 @endsection
 
 @section('content')

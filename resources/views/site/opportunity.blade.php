@@ -14,7 +14,8 @@
     <meta name="twitter:title" content="{{$opportunity->name}} - Opportunity for Afghans">
     <meta name="twitter:image" content="{{$opportunity->getImageUrl()}}">
     <meta name="twitter:description" content="Explore latest opportunities in Afghanistan containing scholarships, internships, jobs, workshops, fellowships, competitions, courses, online events and more.">
-
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4301168084246613"
+     crossorigin="anonymous"></script>
 @endsection
 
 @section('css')
