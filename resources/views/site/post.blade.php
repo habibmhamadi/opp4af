@@ -23,6 +23,9 @@
 @endsection
 
 @section('content')
+    <section id="ads_place" class="max-w-6xl">
+
+    </section>
     <section class="px-4">
         <div class="max-w-4xl mx-auto py-32 md:py-52 lg:py-60 mt-8 bg-cover" style="background-image: url('{{ $post->getImageUrl() }}');">
         </div>
@@ -31,6 +34,9 @@
             <p class="text-gray-500 text-sm mb-4">{{$post->created_at->diffForHumans()}}</p>
             <div class="desc">{!! $post->description !!}</div>
         </article>
+    </section>
+    <section id="ads" class="max-w-6xl">
+
     </section>
     <section class="max-w-4xl mx-auto my-16 px-4">
         <h1 class="text-center text-2xl border-b border-gray-300 uppercase text-gray-900 py-8 my-8 font-semibold">{{__('Trending Posts')}}</h1>

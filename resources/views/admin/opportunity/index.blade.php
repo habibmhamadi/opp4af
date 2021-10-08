@@ -43,6 +43,7 @@
                             <option {{ request()->query('state', '') == 'unpublished' ? 'selected' : '' }} value="unpublished">{{ __('Un-published') }}</option>
                             <option {{ request()->query('state', '') == 'open' ? 'selected' : '' }} value="open">{{ __('Open') }}</option>
                             <option {{ request()->query('state', '') == 'closed' ? 'selected' : '' }} value="closed">{{ __('Closed') }}</option>
+                            <option {{ request()->query('state', '') == 'view' ? 'selected' : '' }} value="view">{{ __('Most View') }}</option>
                         </select>
                     </div>
                     @if($opportunities->count())
@@ -51,6 +52,7 @@
                             <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                                 <th class="py-3 px-6 text-left">{{ __('No.') }}</th>
                                 <th class="py-3 pl-6 text-left">{{ __('Name') }}</th>
+                                <th class="py-3 pl-6 text-left">{{ __('View') }}</th>
                                 <th class="py-3 px-6 text-left">{{ __('Category') }}</th>
                                 <th class="py-3 px-6 text-center">{{ __('Created') }}</th>
                                 <th class="py-3 px-6 text-center">{{ __('Actions') }}</th>
@@ -64,6 +66,9 @@
                                     </td>
                                     <td class="py-3 px-6 text-left">
                                         {{$opportunity->name}}
+                                    </td>
+                                    <td class="py-3 pl-6 text-left">
+                                        {{$opportunity->view}}
                                     </td>
                                     <td class="py-3 pl-6 text-left">
                                         {{$opportunity->category->name}}

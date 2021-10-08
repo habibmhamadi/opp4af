@@ -3,11 +3,6 @@
 namespace App\Http\Controllers\site;
 
 use App\Http\Controllers\Controller;
-use App\Models\Area;
-use App\Models\Category;
-use App\Models\Education;
-use App\Models\Fund;
-use App\Models\Location;
 use App\Models\Opportunity;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -26,6 +21,7 @@ class HomeController extends Controller
 
     public function opportunity(Opportunity $opportunity)
     {
+        $opportunity->increment('view');
         return view('site.opportunity')->with([
             'opportunity' => $opportunity,
             'related_opps' => Opportunity::related_opps($opportunity, 6)
@@ -108,6 +104,7 @@ class HomeController extends Controller
 
     public function post(Post $post)
     {
+        $post->increment('view');
         return view('site.post')->with([
            'post' => $post,
            'trending_posts' => Post::where('published', true)->orderByDesc('view')->limit(3)->get()

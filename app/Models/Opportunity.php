@@ -20,7 +20,8 @@ class Opportunity extends Model
         'image',
         'deadline',
         'description',
-        'published'
+        'published',
+        'view'
     ];
 
     protected $dates = [

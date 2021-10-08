@@ -23,9 +23,9 @@ class OpportunityController extends Controller
     public function index(Request $request)
     {
         $opportunities = Opportunity::with('category')
-            ->select('id', 'name', 'published', 'category_id', 'fund_id', 'created_at');
+            ->select('id', 'name', 'view', 'published', 'category_id', 'fund_id', 'created_at');
 
-        $opportunities = $this->applyRouteFilters($opportunities)->latest('id')->simplePaginate(10);
+        $opportunities = $this->applyRouteFilters($opportunities)->orderByDesc($this->order)->simplePaginate(10);
         $datas = $this->getRouteDatas(false);
         $datas['opportunities'] = $opportunities;
         $datas['count'] = ($request->query('page', 1) - 1) * 10;
@@ -139,6 +139,8 @@ class OpportunityController extends Controller
 
     private function applyRouteFilters($opportunities)
     {
+        $this->order = 'id';
+
         if($this->category_id > 0)
         {
             $opportunities = $opportunities->where('category_id', $this->category_id);
@@ -170,6 +172,10 @@ class OpportunityController extends Controller
         else if ($this->state == 'unpublished')
         {
             $opportunities = $opportunities->where('published', false);
+        }
+        if ($this->state == 'view')
+        {
+            $this->order = 'view';
         }
         return $opportunities;
     }
