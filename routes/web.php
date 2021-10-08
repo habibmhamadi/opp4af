@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\AreaController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\site\HomeController;
 use App\Http\Controllers\admin\SubscriberController;
+use App\Http\Controllers\admin\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,8 @@ use App\Http\Controllers\admin\SubscriberController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/opportunities', [HomeController::class, 'opportunities'])->name('opportunities');
 Route::get('/opportunity/{opportunity:slug}', [HomeController::class, 'opportunity'])->name('opportunity');
+Route::get('/posts', [HomeController::class, 'posts'])->name('posts');
+Route::get('/post/{post:slug}', [HomeController::class, 'post'])->name('post');
 Route::view('/about', 'site.about')->name('about');
 Route::view('/privacy-policy', 'site.policy' )->name('policy');
 Route::post('/subscriber', [SubscriberController::class, 'store'])->name('subscriber.store');
@@ -34,6 +37,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
 
     Route::resources([
         'opportunity' => OpportunityController::class,
+        'post' => PostController::class,
         'category' => CategoryController::class,
         'location' => LocationController::class,
         'education' => EducationController::class,
@@ -44,6 +48,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
 
     Route::post('opportunity/publish/{opportunity}', [OpportunityController::class, 'publish'])->name('opportunity.publish');
     Route::post('opportunity/unpublish/{opportunity}', [OpportunityController::class, 'unPublish'])->name('opportunity.unpublish');
+    Route::post('post/publish/{post}', [PostController::class, 'publish'])->name('post.publish');
+    Route::post('post/unpublish/{post}', [PostController::class, 'unPublish'])->name('post.unpublish');
+
     Route::get('subscriber', [SubscriberController::class, 'index'])->name('subscriber.index');
 });
 

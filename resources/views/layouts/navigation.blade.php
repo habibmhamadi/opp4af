@@ -23,6 +23,11 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex">
+                    <x-nav-link :href="route('admin.post.index')" :active="request()->routeIs('admin.post.*')">
+                        {{ __('Posts') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex">
                     <x-nav-link :href="route('admin.user.index')" :active="request()->routeIs('admin.user.*')">
                         {{ __('Users') }}
                     </x-nav-link>
@@ -119,6 +124,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('admin.opportunity.index')" :active="request()->routeIs('admin.opportunity.*')">
                 {{ __('Opportunities') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.post.index')" :active="request()->routeIs('admin.post.*')">
+                {{ __('Posts') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('admin.category.index')" :active="request()->routeIs('admin.category.*')">
                 {{ __('Categories') }}

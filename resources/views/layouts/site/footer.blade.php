@@ -14,6 +14,7 @@
                 <ul>
                     <li><a href="{{ route('home') }}" class="hover:text-blue-500">{{__('Home')}}</a></li>
                     <li><a href="{{ route('opportunities') }}" class="hover:text-blue-500">{{__('Opportunities')}}</a></li>
+                    <li><a href="{{route('posts')}}" class="hover:text-blue-500">{{__('Blog')}}</a></li>
                     <li><a href="{{route('about')}}" class="hover:text-blue-500">{{__('About us')}}</a></li>
                     <li><a href="{{route('policy')}}" class="hover:text-blue-500">{{__('Privacy Policy')}}</a></li>
                 </ul>

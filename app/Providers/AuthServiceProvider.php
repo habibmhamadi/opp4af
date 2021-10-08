@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Opportunity;
+use App\Models\Post;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use App\Models\User;
@@ -33,6 +34,10 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('alter-opportunity', function (User $user, Opportunity $opportunity) {
             return Gate::allows('admin') || $opportunity->user_id == $user->id;
+        });
+
+        Gate::define('alter-post', function (User $user, Post $post) {
+            return Gate::allows('admin') || $post->user_id == $user->id;
         });
 
         Gate::define('alter-profile', function (User $user, User $profile) {

@@ -9,6 +9,7 @@ use App\Models\Education;
 use App\Models\Fund;
 use App\Models\Location;
 use App\Models\Opportunity;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -90,6 +91,27 @@ class HomeController extends Controller
         $data['education'] = DB::table('education')->select('id', 'name')->get();
         $data['areas'] = DB::table('areas')->select('id', 'name')->orderBy('name')->get();
         return view('site.opportunities')->with($data);
+    }
+
+    public function posts(Request $request)
+    {
+        $posts = Post::where('published', true);
+        if($request->query('query'))
+        {
+            $posts = $posts->where('name', 'like', '%'.$request->query('query').'%');
+        }
+        return view('site.posts')->with([
+            'posts' => $posts->latest('id')->paginate(9),
+            'query' => $request->query('query')
+        ]);
+    }
+
+    public function post(Post $post)
+    {
+        return view('site.post')->with([
+           'post' => $post,
+           'trending_posts' => Post::where('published', true)->orderByDesc('view')->limit(3)->get()
+        ]);
     }
 
     public function isNumber($value) {
