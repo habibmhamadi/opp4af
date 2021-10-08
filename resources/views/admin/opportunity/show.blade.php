@@ -75,7 +75,7 @@
                             </div>
                         </div>
                         <div class="mt-4">
-                            <x-label for="description" :value="__('Description')" :required="true" />
+                            <x-label class="mb-3" for="description" :value="__('Description')" :required="true" />
                             <div class="w-full mt-4 mb-2 desc">{!! $opportunity->description !!}</div>
                         </div>
                         @can('admin')

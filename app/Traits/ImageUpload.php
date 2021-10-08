@@ -12,9 +12,9 @@ trait ImageUpload {
 
     protected function deleteImage($image)
     {
-        if(! preg_match('/http.*/', $image))
+        if(! preg_match('/http.*/', $image) && file_exists($image))
         {
-            unlink('images/'.$image);
+            unlink($image);   
         }
     }
 }

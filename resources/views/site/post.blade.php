@@ -29,7 +29,7 @@
         <article class="max-w-4xl mx-auto mb-8">
             <h1 class="text-4xl font-bold my-10">{{$post->name}}</h1>
             <p class="text-gray-500 text-sm mb-4">{{$post->created_at->diffForHumans()}}</p>
-            {!! $post->description !!}
+            <div class="desc">{!! $post->description !!}</div>
         </article>
     </section>
     <section class="max-w-4xl mx-auto my-16 px-4">

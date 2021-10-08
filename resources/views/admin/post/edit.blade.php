@@ -13,7 +13,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto flex justify-center sm:px-6 lg:px-8">
-            <div class="bg-white w-full overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white w-full overflow-hidden shadow-sm sm:rounded-lg mb-20">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <form method="post" enctype="multipart/form-data" action="{{ route('admin.post.update', $post->id) }}">
                         @csrf
@@ -35,8 +35,8 @@
                                 @error('image') <div class="my-1 text-red-500">{{ $message }}</div> @enderror
                             </div>
                         </div>
-                        <div class="mt-4">
-                            <x-label for="description" :value="__('Description')" :required="true" />
+                        <div class="mt-6">
+                            <x-label class="mb-2" for="description" :value="__('Description')" :required="true" />
                             <textarea name="description" id="description" class="w-full" cols="30" rows="10" required>{{$post->description}}</textarea>
                             @error('description') <div class="my-1 text-red-500">{{ $message }}</div> @enderror
                         </div>
