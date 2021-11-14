@@ -86,9 +86,7 @@ class Opportunity extends Model
         return Opportunity::with('category', 'fund', 'locations')
             ->where('published', true)
             ->where('category_id', Category::where('name', 'Scholarship')->pluck('id'))
-            ->where(function ($w){
-                $w->where('deadline', '>', now())->orWhere('deadline');
-            })
+            ->where('deadline', '!=', null)
             ->latest()->take($limit)->get();
     }
 
@@ -96,9 +94,7 @@ class Opportunity extends Model
     {
         return Opportunity::with('category')
             ->where('published', true)
-            ->where(function ($w){
-                $w->where('deadline', '>', now())->orWhere('deadline');
-            })
+            ->where('deadline', '!=', null)
             ->orderBy('deadline')->take($limit)->get();
     }
 
@@ -106,9 +102,6 @@ class Opportunity extends Model
     {
         return Opportunity::with('category')
             ->where('published', true)
-            ->where(function ($w){
-                $w->where('deadline', '>', now())->orWhere('deadline');
-            })
             ->latest()->take($limit)->get();
     }
 
@@ -118,9 +111,7 @@ class Opportunity extends Model
             ->where('id', '!=', $opportunity->id)
             ->where('published', true)
             ->where('category_id', $opportunity->category_id)
-            ->where(function ($w){
-                $w->where('deadline', '>', now())->orWhere('deadline');
-            })->latest()->take($limit)->get();
+            ->latest()->take($limit)->get();
     }
 
     public function getImageUrl()
