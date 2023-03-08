@@ -86,7 +86,6 @@ class Opportunity extends Model
         return Opportunity::with('category', 'fund', 'locations')
             ->where('published', true)
             ->where('category_id', Category::where('name', 'Scholarship')->pluck('id'))
-            ->where('deadline', '!=', null)
             ->latest()->take($limit)->get();
     }
 
