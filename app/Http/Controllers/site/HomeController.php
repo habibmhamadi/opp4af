@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function index()
     {
         return view('site.home', [
-            'scholarships' => Opportunity::latest_scholarships(),
+            'scholarships' => Opportunity::latest_scholarships(6),
             'deadlines' => Opportunity::deadlines(9),
             'latest' => Opportunity::latests(9)
         ]);
