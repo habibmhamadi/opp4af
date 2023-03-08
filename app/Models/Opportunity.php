@@ -24,10 +24,10 @@ class Opportunity extends Model
         'view'
     ];
 
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'deadline'
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'deadline' => 'datetime'
     ];
 
     protected static function boot()
